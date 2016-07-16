@@ -12,7 +12,8 @@ namespace CommonTypes
         public UserData Userdat
         { get; set; }
      
-        public NetworkAction action;
+        public NetworkAction action
+        { get; set; }
 
         public string Textmessage
         { get; set; }
@@ -21,6 +22,14 @@ namespace CommonTypes
 
 
         public List<UserData> listofUsers;
+
+
+
+
+
+
+
+
 
 
         public MessageData() { }

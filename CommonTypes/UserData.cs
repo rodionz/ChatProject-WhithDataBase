@@ -12,6 +12,17 @@ namespace CommonTypes
         public string Username
         { get; set; }
 
+        public DateTime LastConnectionDate
+        { get; set; }
+
+        public bool IsConnected
+        { get; set; }
+            
+
+
+
+
+
 
         public UserData()
         {
