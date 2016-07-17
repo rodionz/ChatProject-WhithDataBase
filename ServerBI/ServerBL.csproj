@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServerDataManagment.cs" />
     <Compile Include="ServerProps.cs" />
     <Compile Include="ServerEventHandlers.cs" />
     <Compile Include="ServerLogic.cs" />
