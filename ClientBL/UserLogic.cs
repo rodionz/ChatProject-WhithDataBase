@@ -16,13 +16,13 @@ namespace ClientBL
 
         public static event Action<string> NoConnectionWhithServerEvent;
         public static event Action ServerDisconnected;
-        public static event Action<MessageData> MessageRecieved;
+        public static event Action<Message> MessageRecieved;
 
 
 
         public static bool GlobalValidIpandPort;
         public static NetworkAction LolacAction;
-        public static MessageData LockalmesData;
+        public static Message LockalmesData;
         private static TcpClient client;
 
         static Task listening;
@@ -36,11 +36,11 @@ namespace ClientBL
          The separate function fot IP and Port validation was intended,
          besides validating it returns list of Usernames for the folowing username validation
             */
-        public static void IPAndPortValidation(MessageData premesData)
+        public static void IPAndPortValidation(Message premesData)
 
         {
 
-            MessageData returning;
+            Message returning;
 
             TcpClient preclient = new TcpClient();
 
@@ -56,7 +56,7 @@ namespace ClientBL
                 {
                     BinaryFormatter bFormat = new BinaryFormatter();
                     bFormat.Serialize(netStream, premesData);
-                    returning = (MessageData)bFormat.Deserialize(netStream);
+                    returning = (Message)bFormat.Deserialize(netStream);
                     ClientProps.listofUserfortheUsers = returning.listofUsers;
                     GlobalValidIpandPort = true;
                 }
@@ -78,14 +78,14 @@ namespace ClientBL
 
 
 
-        public async static void ConnecttoServer(MessageData mData, UserData uData)
+        public async static void ConnecttoServer(Message mData, Client uData)
         {
 
             try
             {
                 client = new TcpClient();
-                MessageData returning = new MessageData();
-                UserData Localuser = uData;
+                Message returning = new Message();
+                Client Localuser = uData;
                 client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
                 ClientProps.LocalClient = client;
                 BinaryFormatter Bformat = new BinaryFormatter();
@@ -121,10 +121,10 @@ namespace ClientBL
 
 
             }
-        private static void StariListenToIncomingMessages(UserData currentUser)
+        private static void StariListenToIncomingMessages(Client currentUser)
         {
             BinaryFormatter listerformatter = new BinaryFormatter();
-            MessageData incoming = new MessageData();
+            Message incoming = new Message();
             NetworkStream usernetstream = ClientProps.clientStream;
 
             
@@ -162,7 +162,7 @@ namespace ClientBL
 
                 if (usernetstream.DataAvailable)
                 {
-                    incoming = (MessageData)listerformatter.Deserialize(usernetstream);
+                    incoming = (Message)listerformatter.Deserialize(usernetstream);
 
                     if (incoming.action == NetworkAction.ConectionREsponse && incoming.Userdat.Username == currentUser.Username)
                     {
@@ -195,7 +195,7 @@ namespace ClientBL
         }
 
 
-        public static void SendMessage(MessageData outcoming)
+        public static void SendMessage(Message outcoming)
         {
 
             try
@@ -241,12 +241,12 @@ namespace ClientBL
 
 
 
-        public static void Disconnection(UserData uData)
+        public static void Disconnection(Client uData)
 
         {
             
             GlobalValidIpandPort = false;
-            MessageData mData = new MessageData(uData, NetworkAction.UserDisconnection);
+            Message mData = new Message(uData, NetworkAction.UserDisconnection);
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;
 

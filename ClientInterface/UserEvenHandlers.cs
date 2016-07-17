@@ -19,12 +19,12 @@ namespace ClientInterface
         }
 
 
-        public  void IncomingMessageHandler(MessageData mData)
+        public  void IncomingMessageHandler(CommonTypes.Message mData)
         {
 
             if (ChatrichTextBox.InvokeRequired)
             {
-                Action<MessageData> messent = IncomingMessageHandler;
+                Action<CommonTypes.Message> messent = IncomingMessageHandler;
                 this.Invoke(messent, new object[] { mData });
             }
 

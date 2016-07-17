@@ -20,12 +20,12 @@ namespace ClientInterface
 
         
         IPAddress clientIpAddr;       
-         internal   UserData new_user;
-        MessageData mData;
+         internal   Client new_user;
+        CommonTypes.Message mData;
         internal string userNIckname;
         internal string IPasString;
         internal int userPort;
-        internal List<UserData> localListofUsers;
+        internal List<Client> localListofUsers;
 
 
 
@@ -71,8 +71,8 @@ namespace ClientInterface
 
             else
             {
-                
-                mData = new MessageData(new UserData(IPasString, userPort), NetworkAction.IpandPortValidaton);
+
+                mData = new CommonTypes.Message(new Client(IPasString, userPort), NetworkAction.IpandPortValidaton);
                UserLogic.IPAndPortValidation(mData);
 
 
@@ -185,8 +185,8 @@ namespace ClientInterface
             if (ClientInterfaceProps.UserIsValid)
             {
 
-                new_user = new UserData( IPasString, userPort, userNIckname);
-                MessageData mData = new MessageData(new_user);
+                new_user = new Client( IPasString, userPort, userNIckname);
+                CommonTypes.Message mData = new CommonTypes.Message(new_user);
                 mData.action = NetworkAction.Connection;
                 UserLogic.LolacAction = NetworkAction.Connection;               
                 UserLogic.ConnecttoServer(mData , new_user);

@@ -19,11 +19,11 @@ namespace ClientInterface
 
         static List<string> privatelist = new List<string>();
 
-        MessageData MesData = new MessageData();
+        CommonTypes.Message MesData = new CommonTypes.Message();
 
         SignIn registration = new SignIn();
 
-        UserData uData;
+        Client uData;
 
         
 

@@ -51,9 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonVariables.cs" />
-    <Compile Include="MessageData.cs" />
-    <Compile Include="ServerData.cs" />
-    <Compile Include="UserData.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

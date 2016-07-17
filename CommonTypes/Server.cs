@@ -3,7 +3,7 @@
 namespace CommonTypes
 {
     [Serializable]
-   public class ServerData : CommonVariables
+   public class Server : CommonVariables
     {
     
 

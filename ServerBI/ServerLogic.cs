@@ -14,12 +14,12 @@ namespace ServerBI
       
         public static event Action ServerShutDown;
         public static event Action ConnecionWhithWrongIPorPort;     
-        public static event Action<MessageData, NetworkStream>   ipandportvalidation;
-        public static event Action<MessageData, NetworkStream> connection;
-        public static event Action<MessageData, NetworkStream> publicmessage;
-        public static event Action<MessageData, NetworkStream> ListofUsersRequest;
-        public static event Action<MessageData, NetworkStream, UserData> Userdicsconnecter;      
-        public static event Action<MessageData, NetworkStream> PrivateMessage;
+        public static event Action<Message, NetworkStream>   ipandportvalidation;
+        public static event Action<Message, NetworkStream> connection;
+        public static event Action<Message, NetworkStream> publicmessage;
+        public static event Action<Message, NetworkStream> ListofUsersRequest;
+        public static event Action<Message, NetworkStream, Client> Userdicsconnecter;      
+        public static event Action<Message, NetworkStream> PrivateMessage;
 
 
         private static TcpListener server;
@@ -28,7 +28,7 @@ namespace ServerBI
 
 
 
-        public async static void ServerOnline(ServerData sData)
+        public async static void ServerOnline(Server sData)
 
         {
            
@@ -146,7 +146,7 @@ namespace ServerBI
 
 
 
-                MessageData mData = (MessageData)bf.Deserialize(netStr);
+                Message mData = (Message)bf.Deserialize(netStr);
 
             
                 // Server handles each message according to its "Network Action" parameter
@@ -184,7 +184,7 @@ namespace ServerBI
 
 
                     case NetworkAction.UserDisconnection:
-                        UserData uData = mData.Userdat;
+                        Client uData = mData.Userdat;
 
                         /* Deleting of users from those lists costed a lot of troubles 
                          * because of inconsistency of list sizes, 
@@ -225,7 +225,7 @@ namespace ServerBI
 
         {
             ServerProps.ServerisOnline = false;
-            MessageData byebye = new MessageData();
+            Message byebye = new Message();
             byebye.Textmessage = "\n Goodbye to Everyone \n You were disconnected ";
             byebye.action = NetworkAction.SeverDisconnection;
             NetworkStream ns = null;

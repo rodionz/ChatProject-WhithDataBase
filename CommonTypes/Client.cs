@@ -3,7 +3,7 @@
 namespace CommonTypes
 {
     [Serializable]
-    public class UserData : CommonVariables
+    public class Client : CommonVariables
     {
 
         public  int Userid
@@ -24,23 +24,23 @@ namespace CommonTypes
 
 
 
-        public UserData()
+        public Client()
         {
 
         }
 
-        public UserData(int numofuser)
+        public Client(int numofuser)
         {
             this.Userid = numofuser;
         }
 
-        public UserData(string IP, int PORT)
+        public Client(string IP, int PORT)
         {
             this.IPadress = IP;
             this.Portnumber = PORT;
         }
 
-        public UserData( string IP, int Port, string Username)
+        public Client( string IP, int Port, string Username)
         {
             
             this.IPadress = IP;

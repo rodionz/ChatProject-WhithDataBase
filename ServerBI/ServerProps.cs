@@ -71,7 +71,7 @@ namespace ServerBI
 
         public static bool ManualSidconnection = false;
 
-        public static List<UserData> listofUsersontheserver = new List<UserData>();
+        public static List<Client> listofUsersontheserver = new List<Client>();
 
         public static List<NetworkStream> StreamsofClients = new List<NetworkStream>();
 

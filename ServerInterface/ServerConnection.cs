@@ -9,13 +9,13 @@ namespace ServerInterface
 {
     public partial class ServerConnection : Form
     {
-        public ServerConnection(ServerData sdat)
+        public ServerConnection(Server sdat)
         {
             Sdata = sdat;
             InitializeComponent();
         }
 
-        ServerData Sdata;
+        Server Sdata;
         IPAddress ServerIP;
         string adress;
        

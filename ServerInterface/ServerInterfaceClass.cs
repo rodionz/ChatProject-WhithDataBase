@@ -17,7 +17,7 @@ namespace ServerInterface
         }
 
 
-        ServerData sData = new ServerData();
+        Server sData = new Server();
         
       
 

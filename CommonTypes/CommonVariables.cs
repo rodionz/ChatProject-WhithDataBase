@@ -34,7 +34,7 @@ namespace CommonTypes
         public int Portnumber
         { get; set; }
 
-        public static ServerData CommonSd
+        public  Server CommonSd
         { get; set; }
 
 

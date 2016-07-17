@@ -4,12 +4,12 @@ using System.Collections.Generic;
 namespace CommonTypes
 {
     [Serializable]
-  public  class MessageData : CommonVariables
+  public  class Message : CommonVariables
 
     {
 
 
-        public UserData Userdat
+        public Client Userdat
         { get; set; }
      
         public NetworkAction action
@@ -18,29 +18,31 @@ namespace CommonTypes
         public string Textmessage
         { get; set; }
 
-        public List<string> listofnamesforPrivateMessage;
+        public List<string> listofnamesforPrivateMessage
+        { get; set; }
 
 
-        public List<UserData> listofUsers;
-
-
-
-
-
+        public List<Client> listofUsers
+        { get; set; }
 
 
 
 
 
-        public MessageData() { }
 
-        public MessageData(UserData ud)
+
+
+
+
+        public Message() { }
+
+        public Message(Client ud)
         {
             this.Userdat = ud;
 
         }
 
-        public MessageData(UserData ud, NetworkAction act)
+        public Message(Client ud, NetworkAction act)
         {
             this.Userdat = ud;
             action = act;

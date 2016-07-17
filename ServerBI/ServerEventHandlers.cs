@@ -10,13 +10,13 @@ namespace ServerBI
     public class ServerEventHandlers
     {
       
-        public static event Action<MessageData> newuserconnected;
-        public static event Action<MessageData> messgesent;
-        public static event Action<UserData> UserRemovalfromtheInterface;
-        public static event Action<MessageData, NetworkStream, int> UserDisconnectedUnexpected;
+        public static event Action<Message> newuserconnected;
+        public static event Action<Message> messgesent;
+        public static event Action<Client> UserRemovalfromtheInterface;
+        public static event Action<Message, NetworkStream, int> UserDisconnectedUnexpected;
 
 
-        internal static void IPandPortValidationHandler( MessageData mData, NetworkStream nStr)
+        internal static void IPandPortValidationHandler( Message mData, NetworkStream nStr)
 
         {          
                 BinaryFormatter bf = new BinaryFormatter();
@@ -26,7 +26,7 @@ namespace ServerBI
         }
 
 
-        internal static void ConnectionHandler( MessageData mData, NetworkStream nStr)
+        internal static void ConnectionHandler( Message mData, NetworkStream nStr)
         {
             mData.Userdat.Userid = ServerProps.StreamsofClients.Count;
             BinaryFormatter bf = new BinaryFormatter();
@@ -40,7 +40,7 @@ namespace ServerBI
 
         }
 
-        internal static void PublicMessageHandler( MessageData mData, NetworkStream nstr)
+        internal static void PublicMessageHandler( Message mData, NetworkStream nstr)
         {
             for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
             {
@@ -75,12 +75,12 @@ namespace ServerBI
 
 
 
-        internal static void UsersListRequestHandler( MessageData mData, NetworkStream nStr)
+        internal static void UsersListRequestHandler( Message mData, NetworkStream nStr)
         {
             
             BinaryFormatter bf = new BinaryFormatter();
-            mData.listofUsers = new List<UserData>();
-            foreach(UserData ud in ServerProps.listofUsersontheserver)
+            mData.listofUsers = new List<Client>();
+            foreach(Client ud in ServerProps.listofUsersontheserver)
             {
                 if (ud != null)
                     mData.listofUsers.Add(ud);
@@ -99,7 +99,7 @@ namespace ServerBI
 
 
     //Usuall Disconnection
-        internal static void DisconnectUser(MessageData mData, NetworkStream nStr, UserData uData)
+        internal static void DisconnectUser(Message mData, NetworkStream nStr, Client uData)
         {
            
             BinaryFormatter bf = new BinaryFormatter();
@@ -124,10 +124,10 @@ namespace ServerBI
         }
 
 
-        internal static  void UnexpectedDisconnectionHandler(MessageData mData, NetworkStream nStream, int index)
+        internal static  void UnexpectedDisconnectionHandler(Message mData, NetworkStream nStream, int index)
         {
-            mData = new MessageData();
-            UserData LostUser = ServerProps.listofUsersontheserver[index];
+            mData = new Message();
+            Client LostUser = ServerProps.listofUsersontheserver[index];
             BinaryFormatter bf = new BinaryFormatter();
             try
             {
@@ -159,7 +159,7 @@ namespace ServerBI
 
 
 
-        internal static void PrivatemessageHandler(MessageData mData, NetworkStream nStream)
+        internal static void PrivatemessageHandler(Message mData, NetworkStream nStream)
         {
           
 

@@ -75,7 +75,7 @@ namespace ClientBL
 
         public static bool shutdown = false;
 
-        public static List<UserData> listofUserfortheUsers;
+        public static List<Client> listofUserfortheUsers;
 
         public static bool UserisOnline
         { get; set; }

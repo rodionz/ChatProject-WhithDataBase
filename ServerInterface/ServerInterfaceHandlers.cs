@@ -11,13 +11,13 @@ namespace ServerInterface
     {
 
       
-        public  void NewUserEvenHandler(MessageData mymesdata)
+        public  void NewUserEvenHandler(CommonTypes.Message mymesdata)
 
         {
          
             if (CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired)
             {
-               Action<MessageData> stc = NewUserEvenHandler;
+                Action<CommonTypes.Message> stc = NewUserEvenHandler;
                 this.Invoke(stc, new object[] { mymesdata });
 
             }
@@ -41,14 +41,14 @@ namespace ServerInterface
         }
 
     
-        public void MessagesentHandler(MessageData mData)
+        public void MessagesentHandler(CommonTypes.Message mData)
         {
             DateTime current = DateTime.Now;
 
 
             if (ChatListBox.InvokeRequired || CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired )
             {
-                Action<MessageData> dicon = MessagesentHandler;
+                Action<CommonTypes.Message> dicon = MessagesentHandler;
                 this.Invoke(dicon, new object[] { mData });
             }
 
@@ -126,11 +126,11 @@ namespace ServerInterface
             }
 
       
-        public void DisconnectUserHAndler(UserData uData)
+        public void DisconnectUserHAndler(Client uData)
         {
             if (ServerPanel.InvokeRequired)
             {
-                Action <UserData> dicon = DisconnectUserHAndler;
+                Action <Client> dicon = DisconnectUserHAndler;
                 Invoke(dicon, new object[] {uData });
             }
 
