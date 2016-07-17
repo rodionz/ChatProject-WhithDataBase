@@ -73,7 +73,7 @@ namespace ClientInterface
             {
 
                 mData = new CommonTypes.Message(new Client(IPasString, userPort), NetworkAction.IpandPortValidaton);
-               UserLogic.IPAndPortValidation(mData);
+               UserLogic.IPAndPortValidation_andRequestforUserLists(mData);
 
 
 

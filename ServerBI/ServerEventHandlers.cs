@@ -4,6 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using CommonTypes;
 using System.IO;
 using System.Collections.Generic;
+using Chat.DAL;
 
 namespace ServerBI
 {
@@ -75,7 +76,7 @@ namespace ServerBI
 
 
 
-        internal static void UsersListRequestHandler( Message mData, NetworkStream nStr)
+        internal static void UsersList_andDataBaseRequestHandler( Message mData, NetworkStream nStr)
         {
             
             BinaryFormatter bf = new BinaryFormatter();
@@ -86,8 +87,16 @@ namespace ServerBI
                     mData.ListofTakenUserNames.Add(ud);
             }
 
-            //mData.listofUsers = ServerProps.listofUsersontheserver;
-            mData.action = NetworkAction.RequestforListofUsers;
+            using (var context = new ChatContext())
+            {
+
+
+
+            }
+
+
+                //mData.listofUsers = ServerProps.listofUsersontheserver;
+                mData.action = NetworkAction.RequestforListofUsers;
             bf.Serialize(nStr, mData);
         }
 

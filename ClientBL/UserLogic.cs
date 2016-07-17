@@ -36,7 +36,7 @@ namespace ClientBL
          The separate function fot IP and Port validation was intended,
          besides validating it returns list of Usernames for the folowing username validation
             */
-        public static void IPAndPortValidation(Message premesData)
+        public static void IPAndPortValidation_andRequestforUserLists(Message premesData)
 
         {
 
