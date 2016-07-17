@@ -34,11 +34,11 @@ namespace ClientInterface
                 if (mData.action == NetworkAction.RequestforListofUsers)
 
                 {
-                    var names = from n in mData.listofUsers
+                    var names = from n in mData.ListofTakenUserNames
                                 select n.Username; 
 
 
-                    for(int i = 0; i < mData.listofUsers.Count; i++)
+                    for(int i = 0; i < mData.ListofTakenUserNames.Count; i++)
                     {
                     
                         PrivatecheckedListBox.Items.Add(names.ToArray()[i]);

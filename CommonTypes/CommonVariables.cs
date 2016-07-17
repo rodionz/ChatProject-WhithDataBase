@@ -20,6 +20,10 @@ namespace CommonTypes
 
     {
 
+        public int ID
+        { get; set; }
+
+
         public DateTime Time
         { get; set; }
 

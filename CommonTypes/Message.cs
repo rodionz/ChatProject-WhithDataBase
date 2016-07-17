@@ -7,7 +7,7 @@ namespace CommonTypes
   public  class Message : CommonVariables
 
     {
-
+        
 
         public Client Userdat
         { get; set; }
@@ -22,7 +22,9 @@ namespace CommonTypes
         { get; set; }
 
 
-        public List<Client> listofUsers
+        public ICollection<Client> ListofUserinDatabase;
+
+        public List<Client> ListofTakenUserNames
         { get; set; }
 
 

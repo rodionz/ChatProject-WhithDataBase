@@ -57,7 +57,7 @@ namespace ClientBL
                     BinaryFormatter bFormat = new BinaryFormatter();
                     bFormat.Serialize(netStream, premesData);
                     returning = (Message)bFormat.Deserialize(netStream);
-                    ClientProps.listofUserfortheUsers = returning.listofUsers;
+                    ClientProps.listofUserfortheUsers = returning.ListofTakenUserNames;
                     GlobalValidIpandPort = true;
                 }
             }

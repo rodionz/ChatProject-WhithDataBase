@@ -20,7 +20,7 @@ namespace ServerBI
 
         {          
                 BinaryFormatter bf = new BinaryFormatter();
-                mData.listofUsers = ServerProps.listofUsersontheserver;
+                mData.ListofTakenUserNames = ServerProps.listofUsersontheserver;
                 bf.Serialize(nStr, mData);
                 return;           
         }
@@ -79,11 +79,11 @@ namespace ServerBI
         {
             
             BinaryFormatter bf = new BinaryFormatter();
-            mData.listofUsers = new List<Client>();
+            mData.ListofTakenUserNames = new List<Client>();
             foreach(Client ud in ServerProps.listofUsersontheserver)
             {
                 if (ud != null)
-                    mData.listofUsers.Add(ud);
+                    mData.ListofTakenUserNames.Add(ud);
             }
 
             //mData.listofUsers = ServerProps.listofUsersontheserver;
