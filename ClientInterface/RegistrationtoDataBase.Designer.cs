@@ -53,7 +53,7 @@
             this.NicknameConfirmationButton.Name = "NicknameConfirmationButton";
             this.NicknameConfirmationButton.Size = new System.Drawing.Size(86, 34);
             this.NicknameConfirmationButton.TabIndex = 28;
-            this.NicknameConfirmationButton.Text = "Confirm UserName";
+            this.NicknameConfirmationButton.Text = "Register";
             this.NicknameConfirmationButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.NicknameConfirmationButton.UseVisualStyleBackColor = true;
             // 

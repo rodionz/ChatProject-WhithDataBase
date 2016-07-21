@@ -59,7 +59,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 203);
+            this.label2.Location = new System.Drawing.Point(12, 234);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(202, 26);
             this.label2.TabIndex = 15;
@@ -85,7 +85,7 @@
             // 
             // UserNameBox
             // 
-            this.UserNameBox.Location = new System.Drawing.Point(260, 209);
+            this.UserNameBox.Location = new System.Drawing.Point(271, 234);
             this.UserNameBox.Name = "UserNameBox";
             this.UserNameBox.Size = new System.Drawing.Size(143, 20);
             this.UserNameBox.TabIndex = 18;
@@ -115,7 +115,7 @@
             // 
             this.UsernameClearButton.BackColor = System.Drawing.Color.Red;
             this.UsernameClearButton.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameClearButton.Location = new System.Drawing.Point(448, 209);
+            this.UsernameClearButton.Location = new System.Drawing.Point(447, 227);
             this.UsernameClearButton.Name = "UsernameClearButton";
             this.UsernameClearButton.Size = new System.Drawing.Size(79, 27);
             this.UsernameClearButton.TabIndex = 21;
@@ -151,7 +151,7 @@
             // 
             this.NicknameConfirmationButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NicknameConfirmationButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.NicknameConfirmationButton.Location = new System.Drawing.Point(586, 202);
+            this.NicknameConfirmationButton.Location = new System.Drawing.Point(586, 226);
             this.NicknameConfirmationButton.Name = "NicknameConfirmationButton";
             this.NicknameConfirmationButton.Size = new System.Drawing.Size(86, 34);
             this.NicknameConfirmationButton.TabIndex = 24;
@@ -177,10 +177,11 @@
             this.NickNameConfirmationLabel.AutoSize = true;
             this.NickNameConfirmationLabel.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NickNameConfirmationLabel.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.NickNameConfirmationLabel.Location = new System.Drawing.Point(241, 253);
+            this.NickNameConfirmationLabel.Location = new System.Drawing.Point(241, 274);
             this.NickNameConfirmationLabel.Name = "NickNameConfirmationLabel";
-            this.NickNameConfirmationLabel.Size = new System.Drawing.Size(0, 19);
+            this.NickNameConfirmationLabel.Size = new System.Drawing.Size(37, 19);
             this.NickNameConfirmationLabel.TabIndex = 28;
+            this.NickNameConfirmationLabel.Text = "test";
             // 
             // WarningLabel
             // 
@@ -188,8 +189,9 @@
             this.WarningLabel.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningLabel.Location = new System.Drawing.Point(241, 166);
             this.WarningLabel.Name = "WarningLabel";
-            this.WarningLabel.Size = new System.Drawing.Size(0, 19);
+            this.WarningLabel.Size = new System.Drawing.Size(37, 19);
             this.WarningLabel.TabIndex = 30;
+            this.WarningLabel.Text = "test";
             // 
             // label4
             // 
@@ -199,7 +201,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(551, 15);
             this.label4.TabIndex = 31;
-            this.label4.Text = "Please pay attention that  an attempt to connect to enexisting server will cause " +
+            this.label4.Text = "Please pay attention that  an attempt to connect to unexisting server will cause " +
     "a delay (about 10 sec)";
             // 
             // SignIn

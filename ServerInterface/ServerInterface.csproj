@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBaseInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataBaseInterface.Designer.cs">
+      <DependentUpon>DataBaseInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServerBools.cs" />
     <Compile Include="ServerInterfaceHandlers.cs">
       <SubType>Form</SubType>
@@ -88,6 +94,9 @@
     <Compile Include="ServerConnection.Designer.cs">
       <DependentUpon>ServerConnection.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DataBaseInterface.resx">
+      <DependentUpon>DataBaseInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
