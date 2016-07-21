@@ -79,7 +79,7 @@ namespace ClientInterface
                 else
                 {
                     ChatrichTextBox.SelectionColor = Color.Black;
-                    ChatrichTextBox.AppendText("\n" + mData.Userdat.Username + " says: ");
+                    ChatrichTextBox.AppendText("\n" + mData.SendingUserData.Username + " says: ");
                     ChatrichTextBox.SelectionColor = mData.color;
                     ChatrichTextBox.AppendText("\n\t" + mData.Textmessage);
                     ChatrichTextBox.SelectionColor = Color.Black;

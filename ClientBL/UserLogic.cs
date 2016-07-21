@@ -50,7 +50,7 @@ namespace ClientBL
                 /* Please Pay Attention that attempt to connect to unexisting server will cause
                 a delay (7 - 10 seconds) untill it throws an exeption
                 */
-                preclient.Connect(premesData.Userdat.IPadress, premesData.Userdat.Portnumber);
+                preclient.Connect(premesData.SendingUserData.IPadress, premesData.SendingUserData.Portnumber);
 
                 using (NetworkStream netStream = preclient.GetStream())
                 {
@@ -86,7 +86,7 @@ namespace ClientBL
                 client = new TcpClient();
                 Message returning = new Message();
                 Client Localuser = uData;
-                client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
+                client.Connect(IPAddress.Parse(mData.SendingUserData.IPadress), mData.SendingUserData.Portnumber);
                 ClientProps.LocalClient = client;
                 BinaryFormatter Bformat = new BinaryFormatter();
                 NetworkStream stream = client.GetStream();
@@ -98,8 +98,8 @@ namespace ClientBL
                 string local = client.Client.LocalEndPoint.ToString();
                 char[] separ = { ':' };
                 string[] ipandport = local.Split(separ);
-                mData.Userdat.IPadress = ipandport[0];
-                mData.Userdat.Portnumber = int.Parse(ipandport[1]);
+                mData.SendingUserData.IPadress = ipandport[0];
+                mData.SendingUserData.Portnumber = int.Parse(ipandport[1]);
                 //////////////////////////////////////////////////////////////////////////
 
 
@@ -164,9 +164,9 @@ namespace ClientBL
                 {
                     incoming = (Message)listerformatter.Deserialize(usernetstream);
 
-                    if (incoming.action == NetworkAction.ConectionREsponse && incoming.Userdat.Username == currentUser.Username)
+                    if (incoming.action == NetworkAction.ConectionREsponse && incoming.SendingUserData.Username == currentUser.Username)
                     {
-                        currentUser.Userid = incoming.Userdat.Userid;
+                        currentUser.Userid = incoming.SendingUserData.Userid;
                         MessageRecieved(incoming);
                     }
 

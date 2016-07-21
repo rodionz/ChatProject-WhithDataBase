@@ -184,7 +184,7 @@ namespace ServerBI
 
 
                     case NetworkAction.UserDisconnection:
-                        Client uData = mData.Userdat;
+                        Client uData = mData.SendingUserData;
 
                         /* Deleting of users from those lists costed a lot of troubles 
                          * because of inconsistency of list sizes, 
@@ -192,8 +192,8 @@ namespace ServerBI
                             */
                         try
                         {
-                            ServerProps.StreamsofClients[mData.Userdat.Userid].Close();
-                            ServerProps.StreamsofClients[mData.Userdat.Userid].Dispose();
+                            ServerProps.StreamsofClients[mData.SendingUserData.Userid].Close();
+                            ServerProps.StreamsofClients[mData.SendingUserData.Userid].Dispose();
                         }
 
                         catch
@@ -201,13 +201,21 @@ namespace ServerBI
 
                         }
 
-                        ServerProps.listofUsersontheserver[mData.Userdat.Userid] = null;
-                        ServerProps.StreamsofClients[mData.Userdat.Userid] = null;  
+                        ServerProps.listofUsersontheserver[mData.SendingUserData.Userid] = null;
+                        ServerProps.StreamsofClients[mData.SendingUserData.Userid] = null;  
                                                                                         
                         Userdicsconnecter(mData, netStr, uData);
                         mData.action = NetworkAction.None;
                         break;
 
+
+                    case NetworkAction.DataBaseRegistration:
+                        // to do
+                        //
+                        //
+                        //
+                        ServerDataManagment.AddUsertoDataBase(mData.SendingUserData);
+                        break;
 
                     case NetworkAction.None:                      
                         break;

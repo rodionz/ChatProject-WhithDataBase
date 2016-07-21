@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RegistrationtoDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrationtoDataBase.Designer.cs">
+      <DependentUpon>RegistrationtoDataBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserEvenHandlers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     <Compile Include="SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RegistrationtoDataBase.resx">
+      <DependentUpon>RegistrationtoDataBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserInterfaceClass.resx">
       <DependentUpon>UserInterfaceClass.cs</DependentUpon>
     </EmbeddedResource>

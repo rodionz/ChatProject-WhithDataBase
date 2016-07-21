@@ -25,8 +25,8 @@ namespace ServerInterface
             else
             {
               
-                CurrentUsersListbox.Items.Add(mymesdata.Userdat.Username +" IP: " + mymesdata.Userdat.IPadress + 
-                    " Port: " + mymesdata.Userdat.Portnumber);
+                CurrentUsersListbox.Items.Add(mymesdata.SendingUserData.Username +" IP: " + mymesdata.SendingUserData.IPadress + 
+                    " Port: " + mymesdata.SendingUserData.Portnumber);
                 HistoryListbox.Items.Add(mymesdata.Textmessage + mymesdata.Time.ToLongTimeString()  );
             }
         }
@@ -63,12 +63,12 @@ namespace ServerInterface
             // In the case of unexpected user disconnection
                    else if (mData.action == NetworkAction.UserDisconnection)
                 {
-                    ChatListBox.Items.Add("Server says: " + mData.Userdat.Username + " was disconnected");
+                    ChatListBox.Items.Add("Server says: " + mData.SendingUserData.Username + " was disconnected");
 
                     for (int i = 0; i < CurrentUsersListbox.Items.Count; i++)
 
                     {
-                        if (CurrentUsersListbox.Items[i].ToString().Contains(mData.Userdat.Username))
+                        if (CurrentUsersListbox.Items[i].ToString().Contains(mData.SendingUserData.Username))
                         {
                             CurrentUsersListbox.Items.Remove(CurrentUsersListbox.Items[i]);
                             break;
@@ -76,7 +76,7 @@ namespace ServerInterface
 
                     }
 
-                    HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + current.ToLongTimeString());
+                    HistoryListbox.Items.Add(mData.SendingUserData.Username + " was disconnected" + current.ToLongTimeString());
                 }
 
 
@@ -87,7 +87,7 @@ namespace ServerInterface
                 }
                 else
                 {
-                    ChatListBox.Items.Add(mData.Userdat.Username + " says: " + mData.Textmessage);
+                    ChatListBox.Items.Add(mData.SendingUserData.Username + " says: " + mData.Textmessage);
                 }
             }
         }

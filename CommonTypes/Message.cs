@@ -9,7 +9,7 @@ namespace CommonTypes
     {
         
 
-        public Client Userdat
+        public Client SendingUserData
         { get; set; }
      
         public NetworkAction action
@@ -40,13 +40,13 @@ namespace CommonTypes
 
         public Message(Client ud)
         {
-            this.Userdat = ud;
+            this.SendingUserData = ud;
 
         }
 
         public Message(Client ud, NetworkAction act)
         {
-            this.Userdat = ud;
+            this.SendingUserData = ud;
             action = act;
 
         }

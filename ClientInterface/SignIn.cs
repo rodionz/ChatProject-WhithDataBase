@@ -26,6 +26,7 @@ namespace ClientInterface
         internal string IPasString;
         internal int userPort;
         internal List<Client> localListofUsers;
+        internal List<Client> listofregisteredUsers;
 
 
 

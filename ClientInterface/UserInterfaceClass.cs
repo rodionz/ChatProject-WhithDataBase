@@ -95,9 +95,9 @@ namespace ClientInterface
             {
                 MesData.Time = DateTime.Now;
                 MesData.Textmessage = this.TextMessages.Text;
-                MesData.Userdat = uData;
+                MesData.SendingUserData = uData;
                 MesData.action = NetworkAction.Sendmessage;
-                string message = (MesData.Userdat.Username + " says: " + TextMessages.Text);             
+                string message = (MesData.SendingUserData.Username + " says: " + TextMessages.Text);             
                 TextMessages.Clear();
                 UserLogic.SendMessage(MesData);
             }
@@ -106,9 +106,9 @@ namespace ClientInterface
             {
                  MesData.Time = DateTime.Now;
                 MesData.Textmessage = this.TextMessages.Text;
-                MesData.Userdat = uData;
+                MesData.SendingUserData = uData;
                 MesData.action = NetworkAction.SendPrivateMessage;
-                string message = (MesData.Userdat.Username + " says: " + TextMessages.Text);
+                string message = (MesData.SendingUserData.Username + " says: " + TextMessages.Text);
                 ChatrichTextBox.SelectionColor = Color.Black;
                 ChatrichTextBox.AppendText("\n\t You send private message: " + TextMessages.Text);
                 TextMessages.Clear();
