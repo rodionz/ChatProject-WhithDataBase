@@ -29,6 +29,9 @@ namespace ClientInterface
         internal List<Client> listofregisteredUsers;
 
 
+        RegistrationtoDataBase RDB = new RegistrationtoDataBase();
+
+
 
         /* Please Pay Attention that attempt to check IP address and port of unexisting server will cause
                a delay (7 - 10 seconds) untill it throws an exeption
@@ -84,6 +87,7 @@ namespace ClientInterface
                     WarningLabel.Text = "IP Adress and Port are Confirmed";
                     ConfirmIPandPortButton.Enabled = false;
                     localListofUsers = ClientProps.listofUserfortheUsers;
+                    listofregisteredUsers = ClientProps.listofRegisteredUsers;
                     ClientInterfaceProps.IPandPortconfirmed = UserLogic.GlobalValidIpandPort;
 
                 }
@@ -145,18 +149,45 @@ namespace ClientInterface
                                   where n!= null
                                   select (n.Username);
 
+                var listofRegestred = from name in listofregisteredUsers
+                                      where name != null
+                                      select (name.Username);
+                    
 
-                bool a = listofnames.Contains(UserNameBox.Text);
+
+                bool notuniqName = listofnames.Contains(UserNameBox.Text);
+
+                bool registered = listofRegestred.Contains(UserNameBox.Text);
+
 
                 if (UserNameBox.Text != "")
                 {
-                    if (!a)
+                    if (!notuniqName)
                     {
                         NickNameConfirmationLabel.ForeColor = Color.Lime;
                         NickNameConfirmationLabel.Text = "UserName confirmed";
                         userNIckname = UserNameBox.Text;
                         ClientInterfaceProps.uNmake = userNIckname;
                         ClientInterfaceProps.NicnameConfirmed = true;
+                    }
+
+                    else if (!registered)
+                    {
+                     DialogResult dresult  =  MessageBox.Show("User Unregistred", "You are unregistred, please sign up", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
+
+                        if(dresult == DialogResult.Cancel)
+                        {
+                            UserNameBox.Clear();
+                            NickNameConfirmationLabel.ForeColor = Color.Red;
+                            NickNameConfirmationLabel.Text = "Authorisation failed, please try again";
+                        }
+
+                        else
+                        {
+                            RDB.ShowDialog();
+                        }
+
+
                     }
 
                     else

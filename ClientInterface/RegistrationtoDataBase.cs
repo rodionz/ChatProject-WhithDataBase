@@ -17,7 +17,9 @@ namespace ClientInterface
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+       
+
+        private void NicknameConfirmationButton_Click(object sender, EventArgs e)
         {
 
         }

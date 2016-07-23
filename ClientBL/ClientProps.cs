@@ -77,6 +77,8 @@ namespace ClientBL
 
         public static List<Client> listofUserfortheUsers;
 
+        public static List<Client> listofRegisteredUsers;
+
         public static bool UserisOnline
         { get; set; }
 

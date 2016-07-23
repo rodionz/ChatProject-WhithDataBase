@@ -38,30 +38,32 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(302, 39);
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(109, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(441, 28);
             this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Plese sign in before connectiong ChatRoom";
+          
             // 
             // NicknameConfirmationButton
             // 
             this.NicknameConfirmationButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NicknameConfirmationButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.NicknameConfirmationButton.Location = new System.Drawing.Point(269, 190);
+            this.NicknameConfirmationButton.Location = new System.Drawing.Point(286, 174);
             this.NicknameConfirmationButton.Name = "NicknameConfirmationButton";
             this.NicknameConfirmationButton.Size = new System.Drawing.Size(86, 34);
             this.NicknameConfirmationButton.TabIndex = 28;
             this.NicknameConfirmationButton.Text = "Register";
             this.NicknameConfirmationButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.NicknameConfirmationButton.UseVisualStyleBackColor = true;
+            this.NicknameConfirmationButton.Click += new System.EventHandler(this.NicknameConfirmationButton_Click);
             // 
             // UsernameClearButton
             // 
             this.UsernameClearButton.BackColor = System.Drawing.Color.Red;
             this.UsernameClearButton.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameClearButton.Location = new System.Drawing.Point(471, 116);
+            this.UsernameClearButton.Location = new System.Drawing.Point(471, 113);
             this.UsernameClearButton.Name = "UsernameClearButton";
             this.UsernameClearButton.Size = new System.Drawing.Size(79, 27);
             this.UsernameClearButton.TabIndex = 27;
