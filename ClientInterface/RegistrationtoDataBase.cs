@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientBL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,7 @@ namespace ClientInterface
 
         private void NicknameConfirmationButton_Click(object sender, EventArgs e)
         {
-
+            UserLogic.RegistrationtoDataBase(ClientInterfaceProps.thisClient);
         }
     }
 }

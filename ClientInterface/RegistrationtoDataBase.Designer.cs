@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.NicknameConfirmationButton = new System.Windows.Forms.Button();
+            this.NicknameRegistrationButton = new System.Windows.Forms.Button();
             this.UsernameClearButton = new System.Windows.Forms.Button();
             this.UserNameBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,20 +44,19 @@
             this.label1.Size = new System.Drawing.Size(441, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Plese sign in before connectiong ChatRoom";
-          
             // 
-            // NicknameConfirmationButton
+            // NicknameRegistrationButton
             // 
-            this.NicknameConfirmationButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NicknameConfirmationButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.NicknameConfirmationButton.Location = new System.Drawing.Point(286, 174);
-            this.NicknameConfirmationButton.Name = "NicknameConfirmationButton";
-            this.NicknameConfirmationButton.Size = new System.Drawing.Size(86, 34);
-            this.NicknameConfirmationButton.TabIndex = 28;
-            this.NicknameConfirmationButton.Text = "Register";
-            this.NicknameConfirmationButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.NicknameConfirmationButton.UseVisualStyleBackColor = true;
-            this.NicknameConfirmationButton.Click += new System.EventHandler(this.NicknameConfirmationButton_Click);
+            this.NicknameRegistrationButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NicknameRegistrationButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.NicknameRegistrationButton.Location = new System.Drawing.Point(286, 174);
+            this.NicknameRegistrationButton.Name = "NicknameRegistrationButton";
+            this.NicknameRegistrationButton.Size = new System.Drawing.Size(86, 34);
+            this.NicknameRegistrationButton.TabIndex = 28;
+            this.NicknameRegistrationButton.Text = "Register";
+            this.NicknameRegistrationButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.NicknameRegistrationButton.UseVisualStyleBackColor = true;
+            this.NicknameRegistrationButton.Click += new System.EventHandler(this.NicknameConfirmationButton_Click);
             // 
             // UsernameClearButton
             // 
@@ -93,7 +92,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(589, 261);
-            this.Controls.Add(this.NicknameConfirmationButton);
+            this.Controls.Add(this.NicknameRegistrationButton);
             this.Controls.Add(this.UsernameClearButton);
             this.Controls.Add(this.UserNameBox);
             this.Controls.Add(this.label2);
@@ -108,7 +107,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Button NicknameConfirmationButton;
+        public System.Windows.Forms.Button NicknameRegistrationButton;
         private System.Windows.Forms.Button UsernameClearButton;
         public System.Windows.Forms.TextBox UserNameBox;
         public System.Windows.Forms.Label label2;

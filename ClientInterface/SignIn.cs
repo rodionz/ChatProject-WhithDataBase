@@ -37,7 +37,7 @@ namespace ClientInterface
                a delay (7 - 10 seconds) untill it throws an exeption
                */
 
-        public void ConfirmIP_Click(object sender, EventArgs e)
+        public void ConfirmIPandPortClick(object sender, EventArgs e)
         {
 
            
@@ -75,8 +75,8 @@ namespace ClientInterface
 
             else
             {
-
-                mData = new CommonTypes.Message(new Client(IPasString, userPort), NetworkAction.IpandPortValidaton);
+                ClientInterfaceProps.thisClient = new Client(IPasString, userPort);
+                mData = new CommonTypes.Message(ClientInterfaceProps.thisClient, NetworkAction.IpandPortValidaton);
                UserLogic.IPAndPortValidation_andRequestforUserLists(mData);
 
 

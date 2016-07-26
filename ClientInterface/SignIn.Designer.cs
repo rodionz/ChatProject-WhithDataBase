@@ -145,7 +145,7 @@
             this.ConfirmIPandPortButton.TabIndex = 23;
             this.ConfirmIPandPortButton.Text = "Confirm IP and Port";
             this.ConfirmIPandPortButton.UseVisualStyleBackColor = true;
-            this.ConfirmIPandPortButton.Click += new System.EventHandler(this.ConfirmIP_Click);
+            this.ConfirmIPandPortButton.Click += new System.EventHandler(this.ConfirmIPandPortClick);
             // 
             // NicknameConfirmationButton
             // 

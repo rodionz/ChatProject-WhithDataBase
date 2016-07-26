@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommonTypes;
+using System;
 
 
 
@@ -9,6 +10,10 @@ namespace ClientInterface
     static class ClientInterfaceProps
 
     {
+
+       internal  static Client thisClient
+        { get; set; }
+
 
         internal static string  uNmake;
 
