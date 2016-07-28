@@ -22,6 +22,7 @@ namespace ServerBI
         {          
                 BinaryFormatter bf = new BinaryFormatter();
                 mData.ListofTakenUserNames = ServerProps.listofUsersontheserver;
+            mData.ListofUserinDatabase = ServerDataManagment.ReturnListofAllRegisteredUsers();
                 bf.Serialize(nStr, mData);
                 return;           
         }

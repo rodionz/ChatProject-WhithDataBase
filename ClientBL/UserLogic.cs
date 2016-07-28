@@ -7,6 +7,8 @@ using CommonTypes;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Threading;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace ClientBL
 {
@@ -59,6 +61,7 @@ namespace ClientBL
                     bFormat.Serialize(netStream, premesData);
                     returning = (Message)bFormat.Deserialize(netStream);
                     ClientProps.listofUserfortheUsers = returning.ListofTakenUserNames;
+                    ClientProps.listofRegisteredUsers = returning.ListofUserinDatabase;
                     GlobalValidIpandPort = true;
                 }
             }
@@ -101,7 +104,7 @@ namespace ClientBL
 
             finally
             {
-
+                register.Close();
             }
 
         }

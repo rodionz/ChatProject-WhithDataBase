@@ -110,9 +110,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ClientBL\ClientBL.csproj">
       <Project>{f2e3de8c-d0d2-42b9-96f8-0ec933f4f8bf}</Project>
       <Name>ClientBL</Name>

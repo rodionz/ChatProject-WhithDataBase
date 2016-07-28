@@ -22,7 +22,7 @@ namespace CommonTypes
         { get; set; }
 
 
-        public ICollection<Client> ListofUserinDatabase;
+        public List<Client> ListofUserinDatabase;
 
         public List<Client> ListofTakenUserNames
         { get; set; }

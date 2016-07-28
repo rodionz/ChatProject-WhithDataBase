@@ -155,14 +155,14 @@ namespace ClientInterface
                     
 
 
-                bool notuniqName = listofnames.Contains(UserNameBox.Text);
+                bool uniqName = listofnames.Contains(UserNameBox.Text);
 
                 bool registered = listofRegestred.Contains(UserNameBox.Text);
 
 
                 if (UserNameBox.Text != "")
                 {
-                    if (!notuniqName)
+                    if (uniqName)
                     {
                         NickNameConfirmationLabel.ForeColor = Color.Lime;
                         NickNameConfirmationLabel.Text = "UserName confirmed";
@@ -173,7 +173,7 @@ namespace ClientInterface
 
                     else if (!registered)
                     {
-                     DialogResult dresult  =  MessageBox.Show("User Unregistred", "You are unregistred, please sign up", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
+                     DialogResult dresult  =  MessageBox.Show( "You are unregistred, please sign up", "User Unregistred", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
 
                         if(dresult == DialogResult.Cancel)
                         {
