@@ -22,6 +22,7 @@ namespace ClientInterface
 
         private void NicknameConfirmationButton_Click(object sender, EventArgs e)
         {
+            ClientInterfaceProps.thisClient.Username = UserNameBox.Text;
             UserLogic.RegistrationtoDataBase(ClientInterfaceProps.thisClient);
         }
     }

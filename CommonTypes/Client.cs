@@ -6,16 +6,16 @@ namespace CommonTypes
     public class Client : CommonVariables
     {
 
-        public  int Userid
+        public  int UseridinLists
         { get; set; }
 
         public string Username
         { get; set; }
 
-        public DateTime LastConnectionDate
+        public DateTime? LastConnectionDate
         { get; set; }
 
-        public bool IsConnected
+        public bool? IsConnected
         { get; set; }
             
 
@@ -31,7 +31,7 @@ namespace CommonTypes
 
         public Client(int numofuser)
         {
-            this.Userid = numofuser;
+            this.UseridinLists = numofuser;
         }
 
         public Client(string IP, int PORT)

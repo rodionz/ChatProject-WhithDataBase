@@ -198,7 +198,7 @@ namespace ClientBL
 
                     if (incoming.action == NetworkAction.ConectionREsponse && incoming.SendingUserData.Username == currentUser.Username)
                     {
-                        currentUser.Userid = incoming.SendingUserData.Userid;
+                        currentUser.UseridinLists = incoming.SendingUserData.UseridinLists;
                         MessageRecieved(incoming);
                     }
 

@@ -192,8 +192,8 @@ namespace ServerBI
                             */
                         try
                         {
-                            ServerProps.StreamsofClients[mData.SendingUserData.Userid].Close();
-                            ServerProps.StreamsofClients[mData.SendingUserData.Userid].Dispose();
+                            ServerProps.StreamsofClients[mData.SendingUserData.UseridinLists].Close();
+                            ServerProps.StreamsofClients[mData.SendingUserData.UseridinLists].Dispose();
                         }
 
                         catch
@@ -201,8 +201,8 @@ namespace ServerBI
 
                         }
 
-                        ServerProps.listofUsersontheserver[mData.SendingUserData.Userid] = null;
-                        ServerProps.StreamsofClients[mData.SendingUserData.Userid] = null;  
+                        ServerProps.listofUsersontheserver[mData.SendingUserData.UseridinLists] = null;
+                        ServerProps.StreamsofClients[mData.SendingUserData.UseridinLists] = null;  
                                                                                         
                         Userdicsconnecter(mData, netStr, uData);
                         mData.action = NetworkAction.None;

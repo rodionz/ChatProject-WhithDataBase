@@ -30,7 +30,7 @@ namespace ServerBI
 
         internal static void ConnectionHandler( Message mData, NetworkStream nStr)
         {
-            mData.SendingUserData.Userid = ServerProps.StreamsofClients.Count;
+            mData.SendingUserData.UseridinLists = ServerProps.StreamsofClients.Count;
             BinaryFormatter bf = new BinaryFormatter();
             ServerProps.StreamsofClients.Add(nStr);
             ServerProps.listofUsersontheserver.Add(mData.SendingUserData);            

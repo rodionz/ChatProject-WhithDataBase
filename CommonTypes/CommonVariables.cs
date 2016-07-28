@@ -27,7 +27,7 @@ namespace CommonTypes
         { get; set; }
 
 
-        public DateTime Time
+        public DateTime? Time
         { get; set; }
 
         public Color color
@@ -41,8 +41,7 @@ namespace CommonTypes
         public int Portnumber
         { get; set; }
 
-        public  Server CommonSd
-        { get; set; }
+      
 
 
       

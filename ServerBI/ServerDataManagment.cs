@@ -25,7 +25,7 @@ namespace ServerBI
         {
             using (var context = new ChatContext())
             {
-                context.Clients.Attach(c);
+                context.Clients.Add(c);
 
                 context.SaveChanges();
 
