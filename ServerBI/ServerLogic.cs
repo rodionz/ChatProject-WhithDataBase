@@ -217,6 +217,10 @@ namespace ServerBI
                         ServerDataManagment.AddUsertoDataBase(mData.SendingUserData);
                         break;
 
+                    case NetworkAction.Checkifregisterd:
+                        ServerDataManagment.ReturnListofAllRegisteredUsers();
+                        break;
+
                     case NetworkAction.None:                      
                         break;
                         

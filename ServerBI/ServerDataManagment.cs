@@ -70,5 +70,27 @@ namespace ServerBI
 
             }
         }
+
+        internal static bool ChekifUserRegistred(string uName)
+        {
+
+            using (var context = new ChatContext())
+            {
+                var names = from n in context.Clients
+                            select n.Username;
+
+                if (names.Contains(uName))
+                    return true;
+
+                else
+                    return false;
+
+                        
+
+
+            }
+
+
+        }
     }
 }

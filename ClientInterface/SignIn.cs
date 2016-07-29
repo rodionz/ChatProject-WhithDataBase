@@ -27,7 +27,7 @@ namespace ClientInterface
         internal int userPort;
         internal List<Client> localListofUsers;
         internal List<Client> listofregisteredUsers;
-
+        bool registered;
 
         RegistrationtoDataBase RDB = new RegistrationtoDataBase();
 
@@ -157,7 +157,7 @@ namespace ClientInterface
 
                 bool uniqName = listofnames.Contains(UserNameBox.Text);
 
-                bool registered = listofRegestred.Contains(UserNameBox.Text);
+                 registered = listofRegestred.Contains(UserNameBox.Text);
 
 
                 if (UserNameBox.Text != "")
@@ -214,24 +214,33 @@ namespace ClientInterface
 
         private void ConnectButton_Click(object sender, EventArgs e)
         {
-            if (ClientInterfaceProps.UserIsValid)
+            registered = UserLogic.CheckifClientisRegistered(UserNameBox.Text)
+
+            if (registered)
             {
+                if (ClientInterfaceProps.UserIsValid)
+                {
 
-                new_user = new Client( IPasString, userPort, userNIckname);
-                CommonTypes.Message mData = new CommonTypes.Message(new_user);
-                mData.action = NetworkAction.Connection;
-                UserLogic.LolacAction = NetworkAction.Connection;               
-                UserLogic.ConnecttoServer(mData , new_user);
-                ClientProps.shutdown = false;
-                ClearAll();
-                Close();
+                    new_user = new Client(IPasString, userPort, userNIckname);
+                    CommonTypes.Message mData = new CommonTypes.Message(new_user);
+                    mData.action = NetworkAction.Connection;
+                    UserLogic.LolacAction = NetworkAction.Connection;
+                    UserLogic.ConnecttoServer(mData, new_user);
+                    ClientProps.shutdown = false;
+                    ClearAll();
+                    Close();
+                }
+
+                else
+                {
+                    MessageBox.Show("You need to confirm IPAdress, Port and UserName before connecting server", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    //ClientInterfaceProps.ResetBooleans();
+
+                }
             }
-
             else
             {
-                MessageBox.Show("You need to confirm IPAdress, Port and UserName before connecting server", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                //ClientInterfaceProps.ResetBooleans();
-
+                MessageBox.Show("Please sign in before continung", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
 

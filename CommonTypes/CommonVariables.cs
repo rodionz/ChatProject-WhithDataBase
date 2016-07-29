@@ -12,7 +12,7 @@ namespace CommonTypes
     public enum NetworkAction
     { IpandPortValidaton = 1, Connection = 2, Sendmessage = 3, SendPrivateMessage = 22,
         ReceiveMesg = 4, RequestforListofUsers = 5, ConectionREsponse = 6,
-        UserDisconnection = 7, SeverDisconnection = 8, DataBaseRegistration = 9,
+        UserDisconnection = 7, SeverDisconnection = 8, DataBaseRegistration = 9, Checkifregisterd = 10,
         None = 99 }
 
 

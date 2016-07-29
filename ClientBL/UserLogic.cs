@@ -109,6 +109,36 @@ namespace ClientBL
 
         }
 
+        public static void CheckifClientisRegistered(Client newclient)
+        {
+            TcpClient register = new TcpClient();
+
+            try
+            {
+                register.Connect(newclient.IPadress, newclient.Portnumber);
+                using (NetworkStream nStream = register.GetStream())
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    Message reg = new Message();
+                    reg.action = NetworkAction.Checkifregisterd;
+                    reg.SendingUserData = newclient;
+                    bf.Serialize(nStream, reg);
+                }
+
+            }
+
+            catch
+            {
+
+            }
+
+            finally
+            {
+                register.Close();
+            }
+
+        }
+
 
         public async static void ConnecttoServer(Message mData, Client uData)
         {
