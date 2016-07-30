@@ -153,7 +153,7 @@ namespace ClientInterface
                                       where name != null
                                       select (name.Username);
 
-                //ClientInterfaceProps.ListofRegesterdUsernames = listofRegestred.ToList();
+            
 
                 bool uniqName = listofnames.Contains(UserNameBox.Text);
 

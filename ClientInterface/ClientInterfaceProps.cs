@@ -10,8 +10,8 @@ namespace ClientInterface
 
     {
 
-        internal static List<string> ListofRegesterdUsernames
-        { get; set; }
+        internal static List<string> ListofRegesterdUsernames = new List<string>();
+        
 
 
 

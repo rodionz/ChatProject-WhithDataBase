@@ -120,8 +120,24 @@ namespace ClientBL
                 {
                     BinaryFormatter bf = new BinaryFormatter();
                     Message reg = new Message();
-                    reg.action = NetworkAction.Checkifregisterd;
+                    reg.action = NetworkAction.Checkifregisterd;               
                     reg.SendingUserData = newclient;
+
+
+                    // This Feature Provides information about each clent's IP and Port to the Server
+
+                    string local = register.Client.LocalEndPoint.ToString();
+                   
+                    char[] separ = { ':' };
+                    string[] ipandport = local.Split(separ); 
+                    reg.SendingUserData.IPadress = ipandport[0];                   
+                    reg.SendingUserData.Portnumber = int.Parse(ipandport[1]);
+                    ClientProps.RealIP = reg.SendingUserData.IPadress;
+                    ClientProps.RealPort = reg.SendingUserData.Portnumber;
+                    //////////////////////////////////////////////////////////////////////////
+
+
+
                     bf.Serialize(nStream, reg);
                     Message ANSWER = (Message)bf.Deserialize(nStream);
                     if (ANSWER.SendingUserData.Registered)
@@ -157,13 +173,8 @@ namespace ClientBL
                 ClientProps.clientStream = stream;
 
 
-                // This Feature Provides information about each clent's IP and Port to the Server
-
-                string local = client.Client.LocalEndPoint.ToString();
-                char[] separ = { ':' };
-                string[] ipandport = local.Split(separ);
-                mData.SendingUserData.IPadress = ipandport[0];
-                mData.SendingUserData.Portnumber = int.Parse(ipandport[1]);
+                mData.SendingUserData.IPadress = ClientProps.RealIP;
+                mData.SendingUserData.Portnumber = ClientProps.RealPort;
                 //////////////////////////////////////////////////////////////////////////
 
 

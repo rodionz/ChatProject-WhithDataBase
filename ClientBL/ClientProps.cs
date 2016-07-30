@@ -89,5 +89,11 @@ namespace ClientBL
 
         internal static NetworkStream clientStream
         { get; set; }
+
+        internal static string RealIP
+        { get; set; }
+
+        internal  static  int RealPort
+        { get; set; }
     }
 }
