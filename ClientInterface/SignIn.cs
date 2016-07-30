@@ -214,7 +214,7 @@ namespace ClientInterface
 
         private void ConnectButton_Click(object sender, EventArgs e)
         {
-            registered = UserLogic.CheckifClientisRegistered(UserNameBox.Text)
+            registered = UserLogic.CheckifClientisRegistered(mData.SendingUserData);
 
             if (registered)
             {

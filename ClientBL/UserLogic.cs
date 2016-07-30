@@ -109,7 +109,7 @@ namespace ClientBL
 
         }
 
-        public static void CheckifClientisRegistered(Client newclient)
+        public static bool CheckifClientisRegistered(Client newclient)
         {
             TcpClient register = new TcpClient();
 
@@ -123,14 +123,16 @@ namespace ClientBL
                     reg.action = NetworkAction.Checkifregisterd;
                     reg.SendingUserData = newclient;
                     bf.Serialize(nStream, reg);
+                    Message ANSWER = (Message)bf.Deserialize(nStream);
+                    if (ANSWER.SendingUserData.Registered)
+                        return true;
+                    else
+                        return false;
                 }
 
             }
 
-            catch
-            {
-
-            }
+           
 
             finally
             {

@@ -17,9 +17,9 @@ namespace CommonTypes
 
         public bool? IsConnected
         { get; set; }
-            
 
 
+        public bool Registered;
 
 
 

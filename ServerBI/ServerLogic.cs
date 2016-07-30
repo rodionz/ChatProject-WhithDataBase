@@ -218,7 +218,8 @@ namespace ServerBI
                         break;
 
                     case NetworkAction.Checkifregisterd:
-                        ServerDataManagment.ReturnListofAllRegisteredUsers();
+                    mData.SendingUserData.Registered = ServerDataManagment.ChekifUserRegistred(mData.SendingUserData);
+                        bf.Serialize(netStr, mData);
                         break;
 
                     case NetworkAction.None:                      

@@ -71,7 +71,7 @@ namespace ServerBI
             }
         }
 
-        internal static bool ChekifUserRegistred(string uName)
+        internal static bool ChekifUserRegistred(Client c)
         {
 
             using (var context = new ChatContext())
@@ -79,7 +79,7 @@ namespace ServerBI
                 var names = from n in context.Clients
                             select n.Username;
 
-                if (names.Contains(uName))
+                if (names.Contains(c.Username))
                     return true;
 
                 else
