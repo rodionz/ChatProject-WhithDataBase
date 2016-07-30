@@ -33,6 +33,7 @@
             this.UsernameClearButton = new System.Windows.Forms.Button();
             this.UserNameBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.WarnigLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +50,7 @@
             // 
             this.NicknameRegistrationButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NicknameRegistrationButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.NicknameRegistrationButton.Location = new System.Drawing.Point(286, 174);
+            this.NicknameRegistrationButton.Location = new System.Drawing.Point(270, 163);
             this.NicknameRegistrationButton.Name = "NicknameRegistrationButton";
             this.NicknameRegistrationButton.Size = new System.Drawing.Size(86, 34);
             this.NicknameRegistrationButton.TabIndex = 28;
@@ -62,7 +63,7 @@
             // 
             this.UsernameClearButton.BackColor = System.Drawing.Color.Red;
             this.UsernameClearButton.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameClearButton.Location = new System.Drawing.Point(471, 113);
+            this.UsernameClearButton.Location = new System.Drawing.Point(471, 106);
             this.UsernameClearButton.Name = "UsernameClearButton";
             this.UsernameClearButton.Size = new System.Drawing.Size(79, 27);
             this.UsernameClearButton.TabIndex = 27;
@@ -71,7 +72,7 @@
             // 
             // UserNameBox
             // 
-            this.UserNameBox.Location = new System.Drawing.Point(256, 120);
+            this.UserNameBox.Location = new System.Drawing.Point(254, 113);
             this.UserNameBox.Name = "UserNameBox";
             this.UserNameBox.Size = new System.Drawing.Size(143, 20);
             this.UserNameBox.TabIndex = 26;
@@ -80,11 +81,20 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 117);
+            this.label2.Location = new System.Drawing.Point(12, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(202, 26);
             this.label2.TabIndex = 25;
             this.label2.Text = "Enter Your UserName:";
+            // 
+            // WarnigLabel
+            // 
+            this.WarnigLabel.AutoSize = true;
+            this.WarnigLabel.Location = new System.Drawing.Point(270, 213);
+            this.WarnigLabel.Name = "WarnigLabel";
+            this.WarnigLabel.Size = new System.Drawing.Size(35, 13);
+            this.WarnigLabel.TabIndex = 29;
+            this.WarnigLabel.Text = "label3";
             // 
             // RegistrationtoDataBase
             // 
@@ -92,6 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(589, 261);
+            this.Controls.Add(this.WarnigLabel);
             this.Controls.Add(this.NicknameRegistrationButton);
             this.Controls.Add(this.UsernameClearButton);
             this.Controls.Add(this.UserNameBox);
@@ -111,5 +122,6 @@
         private System.Windows.Forms.Button UsernameClearButton;
         public System.Windows.Forms.TextBox UserNameBox;
         public System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label WarnigLabel;
     }
 }

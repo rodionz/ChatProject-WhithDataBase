@@ -152,26 +152,22 @@ namespace ClientInterface
                 var listofRegestred = from name in listofregisteredUsers
                                       where name != null
                                       select (name.Username);
-                    
 
+                //ClientInterfaceProps.ListofRegesterdUsernames = listofRegestred.ToList();
 
                 bool uniqName = listofnames.Contains(UserNameBox.Text);
 
-                 registered = listofRegestred.Contains(UserNameBox.Text);
+                 registered = ClientInterfaceProps.ListofRegesterdUsernames.Contains(UserNameBox.Text);
 
 
-                if (UserNameBox.Text != "")
+                if (UserNameBox.Text == "")
                 {
-                    if (uniqName)
-                    {
-                        NickNameConfirmationLabel.ForeColor = Color.Lime;
-                        NickNameConfirmationLabel.Text = "UserName confirmed";
-                        userNIckname = UserNameBox.Text;
-                        ClientInterfaceProps.uNmake = userNIckname;
-                        ClientInterfaceProps.NicnameConfirmed = true;
-                    }
+                    WarningLabel.ForeColor = Color.Red;
+                    WarningLabel.Text = "Name is illigal";
+                }
 
-                    else if (!registered)
+               else  if (!registered)
+
                     {
                      DialogResult dresult  =  MessageBox.Show( "You are unregistred, please sign up", "User Unregistred", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
 
@@ -186,24 +182,28 @@ namespace ClientInterface
                         {
                             RDB.ShowDialog();
                         }
-
-
                     }
 
-                    else
+
+                   else if (!uniqName)
+                    {
+                        NickNameConfirmationLabel.ForeColor = Color.Lime;
+                        NickNameConfirmationLabel.Text = "UserName confirmed";
+                        userNIckname = UserNameBox.Text;
+                        ClientInterfaceProps.uNmake = userNIckname;
+                        ClientInterfaceProps.NicnameConfirmed = true;
+                    }
+
+                    else if (uniqName)
                     {
                         NickNameConfirmationLabel.ForeColor = Color.Red;
                         NickNameConfirmationLabel.Text = "UserName wae already taken, please choose another one";
                     }
                 }
 
-                else
-                {
-                    WarningLabel.ForeColor = Color.Red;
-                    WarningLabel.Text = "Name is illigal";
-                }
+               
 
-            }
+          
 
             else
             {

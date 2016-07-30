@@ -27,8 +27,8 @@ namespace CommonTypes
         { get; set; }
 
 
-        public DateTime? Time
-        { get; set; }
+        public DateTime Time;
+        
 
         public Color color
         { get; set; }

@@ -214,6 +214,8 @@ namespace ServerBI
                         //
                         //
                         //
+                        mData.SendingUserData.IsConnected = false;
+                        mData.SendingUserData.LastConnectionDate = DateTime.Now;
                         ServerDataManagment.AddUsertoDataBase(mData.SendingUserData);
                         break;
 

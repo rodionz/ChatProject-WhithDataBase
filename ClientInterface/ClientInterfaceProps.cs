@@ -1,7 +1,6 @@
 ﻿using CommonTypes;
 using System;
-
-
+using System.Collections.Generic;
 
 namespace ClientInterface
 {
@@ -10,6 +9,12 @@ namespace ClientInterface
     static class ClientInterfaceProps
 
     {
+
+        internal static List<string> ListofRegesterdUsernames
+        { get; set; }
+
+
+
 
        internal  static Client thisClient
         { get; set; }
