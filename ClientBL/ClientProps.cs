@@ -75,7 +75,7 @@ namespace ClientBL
 
         public static bool shutdown = false;
 
-        public static List<Client> listofUserfortheUsers;
+        public static List<Client> listofTakenNames;
 
         public static List<Client> listofRegisteredUsers;
 

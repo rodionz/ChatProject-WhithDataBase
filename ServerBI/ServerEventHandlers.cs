@@ -5,6 +5,7 @@ using CommonTypes;
 using System.IO;
 using System.Collections.Generic;
 using Chat.DAL;
+using ServerBI;
 
 namespace ServerBI
 {
@@ -38,6 +39,9 @@ namespace ServerBI
             mData.Textmessage = mData.SendingUserData.Username.ToString() + " Connected ";
             newuserconnected(mData);
             mData.action = NetworkAction.ConectionREsponse;
+            //mData.SendingUserData.IsConnected = true;
+            //mData.SendingUserData.LastConnectionDate = DateTime.Now;
+            ServerDataManagment.ConnectionUpdate(mData.SendingUserData);
   
 
         }
@@ -111,7 +115,10 @@ namespace ServerBI
     //Usuall Disconnection
         internal static void DisconnectUser(Message mData, NetworkStream nStr, Client uData)
         {
-           
+
+
+            ServerDataManagment.DisConnectionUpdate(uData);
+
             BinaryFormatter bf = new BinaryFormatter();
            
 
@@ -162,7 +169,7 @@ namespace ServerBI
                     bf.Serialize(_netStream, mData);
                 }
             }
-
+            ServerDataManagment.DisConnectionUpdate(LostUser);
             UserRemovalfromtheInterface(LostUser);
         }
 

@@ -86,7 +86,7 @@ namespace ClientInterface
                     WarningLabel.ForeColor = Color.Lime;
                     WarningLabel.Text = "IP Adress and Port are Confirmed";
                     ConfirmIPandPortButton.Enabled = false;
-                    localListofUsers = ClientProps.listofUserfortheUsers;
+                    localListofUsers = ClientProps.listofTakenNames;
                     listofregisteredUsers = ClientProps.listofRegisteredUsers;
                     ClientInterfaceProps.IPandPortconfirmed = UserLogic.GlobalValidIpandPort;
 
@@ -143,21 +143,22 @@ namespace ClientInterface
 
             if (ClientInterfaceProps.IPandPortconfirmed)
             {
+                bool uniqName;
+
+                var uniqs = (from n in ClientProps.listofTakenNames
+                             where n.Username == UserNameBox.Text
+                             select n).ToList().Count;
+
+                if (uniqs == 0)
+                    uniqName = true;
+                else
+                    uniqName = false;
 
 
-                var listofnames = from n in localListofUsers
-                                  where n!= null
-                                  select (n.Username);
 
-                var listofRegestred = from name in listofregisteredUsers
-                                      where name != null
-                                      select (name.Username);
 
-            
+                registered = UserLogic.CheckifClientisRegistered(ClientInterfaceProps.thisClient);
 
-                bool uniqName = listofnames.Contains(UserNameBox.Text);
-
-                 registered = ClientInterfaceProps.ListofRegesterdUsernames.Contains(UserNameBox.Text);
 
 
                 if (UserNameBox.Text == "")
@@ -185,7 +186,7 @@ namespace ClientInterface
                     }
 
 
-                   else if (!uniqName)
+                   else if (uniqName)
                     {
                         NickNameConfirmationLabel.ForeColor = Color.Lime;
                         NickNameConfirmationLabel.Text = "UserName confirmed";
@@ -194,7 +195,7 @@ namespace ClientInterface
                         ClientInterfaceProps.NicnameConfirmed = true;
                     }
 
-                    else if (uniqName)
+                    else if (!uniqName)
                     {
                         NickNameConfirmationLabel.ForeColor = Color.Red;
                         NickNameConfirmationLabel.Text = "UserName wae already taken, please choose another one";
@@ -214,7 +215,7 @@ namespace ClientInterface
 
         private void ConnectButton_Click(object sender, EventArgs e)
         {
-            registered = UserLogic.CheckifClientisRegistered(mData.SendingUserData);
+           
 
             if (registered)
             {

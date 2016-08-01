@@ -271,7 +271,10 @@ namespace ServerBI
             { }
 
 
-            try { 
+            try {
+                foreach (Client c in ServerProps.listofUsersontheserver)
+                    ServerDataManagment.DisConnectionUpdate(c);
+
                 ServerShutDown();
                 server.Stop();
                 ServerProps.listofUsersontheserver.Clear();

@@ -94,5 +94,57 @@ namespace ServerBI
 
 
         }
+
+        internal static void ConnectionUpdate(Client c)
+        {
+            Client toupdate;
+            using (var context = new ChatContext())
+            {
+                toupdate = context.Clients.Where(s => s.Username == c.Username).SingleOrDefault();
+            }
+
+            if(toupdate != null)
+            {
+                toupdate.IPadress = c.IPadress;
+                toupdate.Portnumber = c.Portnumber;
+                toupdate.IsConnected = true;
+                toupdate.LastConnectionDate = DateTime.Now;
+            }
+
+            using (var context = new ChatContext())
+            {
+
+                context.Entry(toupdate).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+
+            }
+
+        }
+
+
+        internal static void DisConnectionUpdate(Client c)
+        {
+            Client toupdate;
+            using (var context = new ChatContext())
+            {
+                toupdate = context.Clients.Where(s => s.Username == c.Username).SingleOrDefault();
+            }
+
+            if (toupdate != null)
+            {
+              
+                toupdate.IsConnected = false;
+               
+            }
+
+            using (var context = new ChatContext())
+            {
+
+                context.Entry(toupdate).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+
+            }
+
+        }
     }
 }

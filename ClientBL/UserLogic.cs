@@ -60,7 +60,7 @@ namespace ClientBL
                     BinaryFormatter bFormat = new BinaryFormatter();
                     bFormat.Serialize(netStream, premesData);
                     returning = (Message)bFormat.Deserialize(netStream);
-                    ClientProps.listofUserfortheUsers = returning.ListofTakenUserNames;
+                    ClientProps.listofTakenNames = returning.ListofTakenUserNames;
                     ClientProps.listofRegisteredUsers = returning.ListofUserinDatabase;
                     GlobalValidIpandPort = true;
                 }
@@ -129,11 +129,10 @@ namespace ClientBL
                     string local = register.Client.LocalEndPoint.ToString();
                    
                     char[] separ = { ':' };
-                    string[] ipandport = local.Split(separ); 
-                    reg.SendingUserData.IPadress = ipandport[0];                   
-                    reg.SendingUserData.Portnumber = int.Parse(ipandport[1]);
-                    ClientProps.RealIP = reg.SendingUserData.IPadress;
-                    ClientProps.RealPort = reg.SendingUserData.Portnumber;
+                    string[] ipandport = local.Split(separ);
+                    ClientProps.RealIP = ipandport[0];
+                    ClientProps.RealPort = int.Parse(ipandport[1]);
+                 
                     //////////////////////////////////////////////////////////////////////////
 
 
