@@ -11,22 +11,21 @@ namespace CommonTypes
 
         public Client SendingUserData
         { get; set; }
-     
-        public NetworkAction action
-        { get; set; }
+
+        public NetworkAction action;
+  
 
         public string Textmessage
         { get; set; }
 
-        public List<string> listofnamesforPrivateMessage
-        { get; set; }
+        public List<string> listofnamesforPrivateMessage;
+      
 
 
         public List<Client> ListofUserinDatabase;
 
-        public List<Client> ListofTakenUserNames
-        { get; set; }
-
+        public List<Client> ListofTakenUserNames;
+      
 
 
 

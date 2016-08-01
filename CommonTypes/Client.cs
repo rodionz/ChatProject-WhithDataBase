@@ -6,8 +6,8 @@ namespace CommonTypes
     public class Client : CommonVariables
     {
 
-        public  int UseridinLists
-        { get; set; }
+        public int UseridinLists;
+       
 
         public string Username
         { get; set; }
@@ -16,6 +16,12 @@ namespace CommonTypes
         { get; set; }
 
         public bool? IsConnected
+        { get; set; }
+
+        public string IPadress
+        { get; set; }
+
+        public int Portnumber
         { get; set; }
 
 

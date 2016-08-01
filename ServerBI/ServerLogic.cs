@@ -168,6 +168,7 @@ namespace ServerBI
                     
                     case NetworkAction.Sendmessage:
                         publicmessage(mData, netStr);
+                        ServerDataManagment.PublicMessagetoDatabase(mData);
                         mData.action = NetworkAction.None;
                         break;
 

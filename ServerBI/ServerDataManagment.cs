@@ -2,6 +2,7 @@
 using CommonTypes;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,17 +11,7 @@ namespace ServerBI
 {
     class ServerDataManagment
     {
-        internal static bool UserNametoDataBaseValidation()
-        {
-            using ( var context = new ChatContext())
-            {
-
-                return true;
-
-            }
-
-        }
-
+       
         internal static void AddUsertoDataBase(Client c )
         {
             using (var context = new ChatContext())
@@ -49,17 +40,7 @@ namespace ServerBI
 
         }
 
-       internal static void SaveMessagetoDataBase()
-        {
-            using (var context = new ChatContext())
-            {
-
-
-
-            }
-
-
-        }
+    
 
         internal static List<Client> ReturnListofAllRegisteredUsers()
         {
@@ -100,7 +81,7 @@ namespace ServerBI
             Client toupdate;
             using (var context = new ChatContext())
             {
-                toupdate = context.Clients.Where(s => s.Username == c.Username).SingleOrDefault();
+                toupdate = context.Clients.Where(s => s.Username == c.Username).FirstOrDefault();
             }
 
             if(toupdate != null)
@@ -127,7 +108,7 @@ namespace ServerBI
             Client toupdate;
             using (var context = new ChatContext())
             {
-                toupdate = context.Clients.Where(s => s.Username == c.Username).SingleOrDefault();
+                toupdate = context.Clients.Where(s => s.Username == c.Username).FirstOrDefault<Client>();
             }
 
             if (toupdate != null)
@@ -140,11 +121,36 @@ namespace ServerBI
             using (var context = new ChatContext())
             {
 
-                context.Entry(toupdate).State = System.Data.Entity.EntityState.Modified;
+                context.Entry(toupdate).State = EntityState.Modified;
                 context.SaveChanges();
 
             }
 
+        }
+
+        internal static void PublicMessagetoDatabase(Message mData)
+        {
+            Client x;
+
+            using (var context = new ChatContext())
+            {
+
+                x = context.Clients.Where(n => n.Username == mData.SendingUserData.Username).FirstOrDefault();
+
+            }
+
+
+
+
+            using (var context = new ChatContext())
+            {
+                mData.SendingUserData = x;
+                context.Messages.Attach(mData);
+
+                context.Entry(mData).State = EntityState.Added;
+
+                context.SaveChanges();
+            }
         }
     }
 }

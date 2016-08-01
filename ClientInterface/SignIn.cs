@@ -155,7 +155,7 @@ namespace ClientInterface
                     uniqName = false;
 
 
-
+                ClientInterfaceProps.thisClient.Username = UserNameBox.Text;
 
                 registered = UserLogic.CheckifClientisRegistered(ClientInterfaceProps.thisClient);
 

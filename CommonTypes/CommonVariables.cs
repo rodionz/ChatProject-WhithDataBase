@@ -28,18 +28,13 @@ namespace CommonTypes
 
 
         public DateTime Time;
-        
 
-        public Color color
-        { get; set; }
+
+        public Color color;
+      
 
        
 
-        public string IPadress
-        { get; set; }
-
-        public int Portnumber
-        { get; set; }
 
       
 
