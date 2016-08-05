@@ -16,5 +16,30 @@ namespace ServerInterface
         {
             InitializeComponent();
         }
+
+        private void SearchUserByName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void serchUserbyId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchByKeywordClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchbydate(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteUser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
