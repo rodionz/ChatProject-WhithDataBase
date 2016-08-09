@@ -50,9 +50,9 @@
       <Project>{cbe64627-157b-42ad-a078-6431e40b3b4b}</Project>
       <Name>Chat.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CommonTypes\CommonData.csproj">
+    <ProjectReference Include="..\CommonTypes\Chat.Model.csproj">
       <Project>{521ba932-6be5-481b-a3ed-c6b2bae91217}</Project>
-      <Name>CommonData</Name>
+      <Name>Chat.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -32,6 +32,7 @@ namespace ServerBI
         {
             using (var context = new ChatContext())
             {
+                context.Clients.Attach(toDEL);
                 context.Clients.Remove(toDEL);
                 context.SaveChanges();
 
@@ -206,9 +207,16 @@ namespace ServerBI
             using (var context = new ChatContext())
             {
 
-                var results = from m in context.Messages
-                              where m.SendingTime.Date  == dt.Date
+                //  Entity framework does not exept any ToString() functions.  This is the only solution i found.
+
+                var allitems = context.Messages.ToList();
+
+
+
+                var results = from m in allitems
+                              where m.SendingTime.ToShortDateString()  == dt.ToShortDateString()
                               select m ;
+                
                 return results.ToArray();
             }
 

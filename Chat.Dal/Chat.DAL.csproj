@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommonTypes\CommonData.csproj">
+    <ProjectReference Include="..\CommonTypes\Chat.Model.csproj">
       <Project>{521ba932-6be5-481b-a3ed-c6b2bae91217}</Project>
-      <Name>CommonData</Name>
+      <Name>Chat.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

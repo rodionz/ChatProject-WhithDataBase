@@ -30,7 +30,8 @@ namespace CommonTypes
         public DateTime SendingTime
         { get; set; }
 
-
+        public int RecipientID
+        { get; set; }
 
 
 

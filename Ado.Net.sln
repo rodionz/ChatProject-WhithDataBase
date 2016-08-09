@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonData", "CommonTypes\CommonData.csproj", "{521BA932-6BE5-481B-A3ED-C6B2BAE91217}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chat.Model", "CommonTypes\Chat.Model.csproj", "{521BA932-6BE5-481B-A3ED-C6B2BAE91217}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerBL", "ServerBI\ServerBL.csproj", "{68ADBA17-0D30-428C-ABAD-839517257566}"
 EndProject

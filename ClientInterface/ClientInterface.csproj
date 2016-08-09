@@ -114,9 +114,9 @@
       <Project>{f2e3de8c-d0d2-42b9-96f8-0ec933f4f8bf}</Project>
       <Name>ClientBL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CommonTypes\CommonData.csproj">
+    <ProjectReference Include="..\CommonTypes\Chat.Model.csproj">
       <Project>{521ba932-6be5-481b-a3ed-c6b2bae91217}</Project>
-      <Name>CommonData</Name>
+      <Name>Chat.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

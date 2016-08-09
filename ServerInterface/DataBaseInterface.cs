@@ -78,6 +78,11 @@ namespace ServerInterface
         private void searchbydate(object sender, EventArgs e)
         {
             CommonTypes.Message[] results = ServerDataManagment.MessageSearchbyDate(dateTimePicker1.Value);
+
+            foreach(CommonTypes.Message m in results)
+            {
+                messageListBox.Items.Add(m.Textmessage);
+            }
         }
 
         private void deleteUser_Click(object sender, EventArgs e)
