@@ -18,6 +18,8 @@ namespace ServerInterface
 
 
         Server sData = new Server();
+
+        DataBaseInterface DBI = new DataBaseInterface();
         
       
 
@@ -91,6 +93,9 @@ namespace ServerInterface
             //ServerLogic.ConnecionWhithWrongIPorPort -= ServerInterfaceClass.AtemmttoconnectWhithWrongIPandPort_Handler;
         }
 
-        
+        private void DataInterfaceButton_Click(object sender, EventArgs e)
+        {
+            DBI.ShowDialog();
+        }
     }
 }

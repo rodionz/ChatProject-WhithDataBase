@@ -296,6 +296,7 @@
             this.DataInterfaceButton.TabIndex = 25;
             this.DataInterfaceButton.Text = "Data Managment";
             this.DataInterfaceButton.UseVisualStyleBackColor = true;
+            this.DataInterfaceButton.Click += new System.EventHandler(this.DataInterfaceButton_Click);
             // 
             // ServerInterfaceClass
             // 

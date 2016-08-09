@@ -215,7 +215,7 @@ namespace ClientInterface
 
         private void ConnectButton_Click(object sender, EventArgs e)
         {
-           
+            registered = UserLogic.CheckifClientisRegistered(ClientInterfaceProps.thisClient);
 
             if (registered)
             {
@@ -241,7 +241,7 @@ namespace ClientInterface
             }
             else
             {
-                MessageBox.Show("Please sign in before continung", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Please Confirm your Your UserName", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
 
