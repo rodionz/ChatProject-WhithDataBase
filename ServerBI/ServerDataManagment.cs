@@ -28,11 +28,12 @@ namespace ServerBI
 
         }
 
-        internal static void RemoveUserfromDataBase()
+        public static void RemoveUserfromDataBase(Client toDEL)
         {
             using (var context = new ChatContext())
             {
-
+                context.Clients.Remove(toDEL);
+                context.SaveChanges();
 
 
             }
@@ -42,7 +43,7 @@ namespace ServerBI
 
     
 
-        internal static List<Client> ReturnListofAllRegisteredUsers()
+        public static List<Client> ReturnListofAllRegisteredUsers()
         {
             using (var context = new ChatContext())
             {
@@ -128,6 +129,12 @@ namespace ServerBI
 
         }
 
+        internal static void DisconnectEveryone()
+        {
+
+
+        }
+
         internal static void PublicMessagetoDatabase(Message mData)
         {
             Client x;
@@ -200,8 +207,8 @@ namespace ServerBI
             {
 
                 var results = from m in context.Messages
-                              where m.SendingTime == dt
-                              select m;
+                              where m.SendingTime.Date  == dt.Date
+                              select m ;
                 return results.ToArray();
             }
 

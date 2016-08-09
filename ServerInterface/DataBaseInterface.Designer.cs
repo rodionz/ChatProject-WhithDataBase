@@ -41,6 +41,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.IDTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.serchUserbyId = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.userListBox = new System.Windows.Forms.ListBox();
             this.CleanUsersResultsButton = new System.Windows.Forms.Button();
             this.ClearMessageResultsButton = new System.Windows.Forms.Button();
-            this.IDTextBox = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -103,9 +103,9 @@
             this.label2.ForeColor = System.Drawing.Color.Crimson;
             this.label2.Location = new System.Drawing.Point(12, 349);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(263, 26);
+            this.label2.Size = new System.Drawing.Size(269, 26);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Delete User fron Database : ";
+            this.label2.Text = "Delete User from Database : ";
             // 
             // SearchUserByName
             // 
@@ -191,6 +191,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(422, 157);
             this.panel2.TabIndex = 10;
+            // 
+            // IDTextBox
+            // 
+            this.IDTextBox.Location = new System.Drawing.Point(121, 101);
+            this.IDTextBox.Mask = "00000";
+            this.IDTextBox.Name = "IDTextBox";
+            this.IDTextBox.Size = new System.Drawing.Size(120, 22);
+            this.IDTextBox.TabIndex = 13;
+            this.IDTextBox.ValidatingType = typeof(int);
             // 
             // label7
             // 
@@ -288,6 +297,7 @@
             this.CleanUsersResultsButton.TabIndex = 18;
             this.CleanUsersResultsButton.Text = "Clear";
             this.CleanUsersResultsButton.UseVisualStyleBackColor = false;
+            this.CleanUsersResultsButton.Click += new System.EventHandler(this.CleanUsersResultsButton_Click);
             // 
             // ClearMessageResultsButton
             // 
@@ -299,15 +309,7 @@
             this.ClearMessageResultsButton.TabIndex = 19;
             this.ClearMessageResultsButton.Text = "Clear";
             this.ClearMessageResultsButton.UseVisualStyleBackColor = false;
-            // 
-            // IDTextBox
-            // 
-            this.IDTextBox.Location = new System.Drawing.Point(121, 101);
-            this.IDTextBox.Mask = "00000";
-            this.IDTextBox.Name = "IDTextBox";
-            this.IDTextBox.Size = new System.Drawing.Size(120, 22);
-            this.IDTextBox.TabIndex = 13;
-            this.IDTextBox.ValidatingType = typeof(int);
+            this.ClearMessageResultsButton.Click += new System.EventHandler(this.ClearMessageResultsButton_Click);
             // 
             // DataBaseInterface
             // 
@@ -328,6 +330,7 @@
             this.Controls.Add(this.label2);
             this.Name = "DataBaseInterface";
             this.Text = "DataBaseInterface";
+            this.Load += new System.EventHandler(this.DataBaseInterface_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

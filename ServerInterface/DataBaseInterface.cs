@@ -19,6 +19,10 @@ namespace ServerInterface
             InitializeComponent();
         }
 
+
+        List<Client> allClients;
+
+
         private void SearchUserByName_Click(object sender, EventArgs e)
         {
             Client[] clients = ServerDataManagment.UserSearchbyName(textBox3.Text);
@@ -78,12 +82,43 @@ namespace ServerInterface
 
         private void deleteUser_Click(object sender, EventArgs e)
         {
+            Client usertoDelete = allClients.FirstOrDefault(n => n.Username == comboBox1.SelectedItem.ToString());
 
+
+
+       DialogResult dr =  MessageBox.Show("Are you sure that you want to delete " + usertoDelete.Username + " from the Data Base ?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (dr == DialogResult.OK)
+            {
+                ServerDataManagment.RemoveUserfromDataBase(usertoDelete);
+            }
+
+          
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void DataBaseInterface_Load(object sender, EventArgs e)
+        {
+             allClients = ServerDataManagment.ReturnListofAllRegisteredUsers();
+
+            foreach (Client c in allClients)
+            {
+                comboBox1.Items.Add(c.Username);
+            }
+        }
+
+        private void ClearMessageResultsButton_Click(object sender, EventArgs e)
+        {
+            messageListBox.Items.Clear();
+        }
+
+        private void CleanUsersResultsButton_Click(object sender, EventArgs e)
+        {
+            userListBox.Items.Clear();
         }
     }
 }
