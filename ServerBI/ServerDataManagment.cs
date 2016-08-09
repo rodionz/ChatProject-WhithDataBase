@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ServerBI
 {
-    class ServerDataManagment
+   public  class ServerDataManagment
     {
        
         internal static void AddUsertoDataBase(Client c )
@@ -152,5 +152,35 @@ namespace ServerBI
                 context.SaveChanges();
             }
         }
+
+
+        public static Message [] MessageSearchbyText (string text)
+        {
+
+            using (var context = new ChatContext())
+            {
+                var results = from m in context.Messages
+                              where m.Textmessage.Contains(text)
+                              select m;
+
+                return results.ToArray();
+
+            }
+
+
+        }
+
+        public static Client [] UserSearchbyName(string text)
+        {
+            using (var context = new ChatContext())
+            {
+                var results = from u in context.Clients
+                              where u.Username.Contains(text)
+                              select u;
+
+                return results.ToArray();
+            }
+        }
+
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ServerBI;
+using CommonTypes;
 
 namespace ServerInterface
 {
@@ -19,7 +21,17 @@ namespace ServerInterface
 
         private void SearchUserByName_Click(object sender, EventArgs e)
         {
+            Client[] clients = ServerDataManagment.UserSearchbyName(textBox3.Text);
 
+            if (clients.Length != 0)
+            {
+                userListBox.Items.AddRange(clients);
+            }
+
+            else
+            {
+                userListBox.Items.Add("No results ");
+            }
         }
 
         private void serchUserbyId_Click(object sender, EventArgs e)
@@ -29,7 +41,17 @@ namespace ServerInterface
 
         private void SearchByKeywordClick(object sender, EventArgs e)
         {
+            CommonTypes.Message[] results = ServerDataManagment.MessageSearchbyText(textBox1.Text);
 
+            if(results.Length != 0)
+            {
+                messageListBox.Items.AddRange(results);
+            }
+
+            else
+            {
+                messageListBox.Items.Add("No results ");
+            }
         }
 
         private void searchbydate(object sender, EventArgs e)
@@ -38,6 +60,11 @@ namespace ServerInterface
         }
 
         private void deleteUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
         }

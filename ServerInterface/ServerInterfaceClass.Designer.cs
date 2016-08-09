@@ -49,6 +49,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ServerPanel = new System.Windows.Forms.Panel();
+            this.DataInterfaceButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -67,7 +68,7 @@
             this.panel1.BackColor = System.Drawing.Color.Navy;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.tabControl2);
-            this.panel1.Location = new System.Drawing.Point(107, 94);
+            this.panel1.Location = new System.Drawing.Point(158, 98);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(363, 326);
             this.panel1.TabIndex = 1;
@@ -145,9 +146,9 @@
             this.StartServerButton.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartServerButton.ForeColor = System.Drawing.Color.LimeGreen;
             this.StartServerButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.StartServerButton.Location = new System.Drawing.Point(3, 99);
+            this.StartServerButton.Location = new System.Drawing.Point(16, 110);
             this.StartServerButton.Name = "StartServerButton";
-            this.StartServerButton.Size = new System.Drawing.Size(98, 36);
+            this.StartServerButton.Size = new System.Drawing.Size(111, 36);
             this.StartServerButton.TabIndex = 2;
             this.StartServerButton.Text = "Start Server";
             this.StartServerButton.UseVisualStyleBackColor = true;
@@ -157,7 +158,7 @@
             // 
             this.GreenLightPanel.Controls.Add(this.label2);
             this.GreenLightPanel.Controls.Add(this.GreenLamp);
-            this.GreenLightPanel.Location = new System.Drawing.Point(132, 10);
+            this.GreenLightPanel.Location = new System.Drawing.Point(158, 10);
             this.GreenLightPanel.Name = "GreenLightPanel";
             this.GreenLightPanel.Size = new System.Drawing.Size(143, 82);
             this.GreenLightPanel.TabIndex = 18;
@@ -187,7 +188,7 @@
             // 
             this.RedLightPanel.Controls.Add(this.label1);
             this.RedLightPanel.Controls.Add(this.RedLamp);
-            this.RedLightPanel.Location = new System.Drawing.Point(281, 10);
+            this.RedLightPanel.Location = new System.Drawing.Point(374, 10);
             this.RedLightPanel.Name = "RedLightPanel";
             this.RedLightPanel.Size = new System.Drawing.Size(147, 82);
             this.RedLightPanel.TabIndex = 17;
@@ -206,7 +207,7 @@
             // RedLamp
             // 
             this.RedLamp.Image = global::ServerInterface.Properties.Resources.red;
-            this.RedLamp.Location = new System.Drawing.Point(57, 3);
+            this.RedLamp.Location = new System.Drawing.Point(56, 4);
             this.RedLamp.Name = "RedLamp";
             this.RedLamp.Size = new System.Drawing.Size(35, 34);
             this.RedLamp.TabIndex = 13;
@@ -218,9 +219,9 @@
             this.StopServerButton.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopServerButton.ForeColor = System.Drawing.Color.Tomato;
             this.StopServerButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.StopServerButton.Location = new System.Drawing.Point(3, 156);
+            this.StopServerButton.Location = new System.Drawing.Point(16, 184);
             this.StopServerButton.Name = "StopServerButton";
-            this.StopServerButton.Size = new System.Drawing.Size(98, 37);
+            this.StopServerButton.Size = new System.Drawing.Size(111, 42);
             this.StopServerButton.TabIndex = 19;
             this.StopServerButton.Text = "Stop Server";
             this.StopServerButton.UseVisualStyleBackColor = true;
@@ -271,6 +272,7 @@
             // 
             // ServerPanel
             // 
+            this.ServerPanel.Controls.Add(this.DataInterfaceButton);
             this.ServerPanel.Controls.Add(this.panel1);
             this.ServerPanel.Controls.Add(this.GreenLightPanel);
             this.ServerPanel.Controls.Add(this.label3);
@@ -282,15 +284,25 @@
             this.ServerPanel.Controls.Add(this.StartServerButton);
             this.ServerPanel.Location = new System.Drawing.Point(2, 2);
             this.ServerPanel.Name = "ServerPanel";
-            this.ServerPanel.Size = new System.Drawing.Size(510, 591);
+            this.ServerPanel.Size = new System.Drawing.Size(534, 591);
             this.ServerPanel.TabIndex = 26;
+            // 
+            // DataInterfaceButton
+            // 
+            this.DataInterfaceButton.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataInterfaceButton.Location = new System.Drawing.Point(16, 261);
+            this.DataInterfaceButton.Name = "DataInterfaceButton";
+            this.DataInterfaceButton.Size = new System.Drawing.Size(111, 49);
+            this.DataInterfaceButton.TabIndex = 25;
+            this.DataInterfaceButton.Text = "Data Managment";
+            this.DataInterfaceButton.UseVisualStyleBackColor = true;
             // 
             // ServerInterfaceClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(512, 597);
+            this.ClientSize = new System.Drawing.Size(535, 597);
             this.Controls.Add(this.ServerPanel);
             this.Name = "ServerInterfaceClass";
             this.Text = "ServerUi";
@@ -338,6 +350,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Panel ServerPanel;
+        private System.Windows.Forms.Button DataInterfaceButton;
     }
 }
 

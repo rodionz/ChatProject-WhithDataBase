@@ -90,5 +90,7 @@ namespace ServerInterface
             ServerEventHandlers.UserRemovalfromtheInterface -= DisconnectUserHAndler;
             //ServerLogic.ConnecionWhithWrongIPorPort -= ServerInterfaceClass.AtemmttoconnectWhithWrongIPandPort_Handler;
         }
+
+        
     }
 }
