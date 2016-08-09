@@ -25,7 +25,10 @@ namespace ServerInterface
 
             if (clients.Length != 0)
             {
-                userListBox.Items.AddRange(clients);
+                foreach(Client c in clients)
+                {
+                    userListBox.Items.Add(c.Username);
+                }
             }
 
             else
@@ -36,8 +39,22 @@ namespace ServerInterface
 
         private void serchUserbyId_Click(object sender, EventArgs e)
         {
+            Client[] results = ServerDataManagment.UserSearchbyID(int.Parse(IDTextBox.Text));
 
+            if (results.Length != 0)
+            {
+                foreach (Client c in results)
+                {
+                    userListBox.Items.Add(c.Username);
+                }
+            }
+
+            else
+            {
+                userListBox.Items.Add("No results ");
+            }
         }
+    
 
         private void SearchByKeywordClick(object sender, EventArgs e)
         {
@@ -56,7 +73,7 @@ namespace ServerInterface
 
         private void searchbydate(object sender, EventArgs e)
         {
-
+            CommonTypes.Message[] results = ServerDataManagment.MessageSearchbyDate(dateTimePicker1.Value);
         }
 
         private void deleteUser_Click(object sender, EventArgs e)

@@ -27,7 +27,7 @@ namespace ServerInterface
               
                 CurrentUsersListbox.Items.Add(mymesdata.SendingUserData.Username +" IP: " + mymesdata.SendingUserData.IPadress + 
                     " Port: " + mymesdata.SendingUserData.Portnumber);
-                DateTime normaltime = (DateTime)mymesdata.Time;
+                DateTime normaltime = (DateTime)mymesdata.SendingTime;
                 HistoryListbox.Items.Add(mymesdata.Textmessage + normaltime.ToLongTimeString());
             }
         }

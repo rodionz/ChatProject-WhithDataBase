@@ -182,5 +182,29 @@ namespace ServerBI
             }
         }
 
+        public static Client[] UserSearchbyID(int clientID)
+        {
+            using (var context = new ChatContext())
+            {
+                var results = from u in context.Clients
+                              where u.ID == clientID
+                              select u;
+
+                return results.ToArray();
+            }
+        }
+
+        public static Message [] MessageSearchbyDate (DateTime dt)
+        {
+            using (var context = new ChatContext())
+            {
+
+                var results = from m in context.Messages
+                              where m.SendingTime == dt
+                              select m;
+                return results.ToArray();
+            }
+
+        }
     }
 }

@@ -93,7 +93,7 @@ namespace ClientInterface
         {
             if (!ClientInterfaceProps.PrivateMessage)
             {
-                MesData.Time = DateTime.Now;
+                MesData.SendingTime = DateTime.Now;
                 MesData.Textmessage = this.TextMessages.Text;
                 MesData.SendingUserData = uData;
                 MesData.action = NetworkAction.Sendmessage;
@@ -104,7 +104,7 @@ namespace ClientInterface
 
             else
             {
-                 MesData.Time = DateTime.Now;
+                 MesData.SendingTime = DateTime.Now;
                 MesData.Textmessage = this.TextMessages.Text;
                 MesData.SendingUserData = uData;
                 MesData.action = NetworkAction.SendPrivateMessage;

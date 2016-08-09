@@ -25,9 +25,10 @@ namespace CommonTypes
         public List<Client> ListofUserinDatabase;
 
         public List<Client> ListofTakenUserNames;
-      
 
 
+        public DateTime SendingTime
+        { get; set; }
 
 
 

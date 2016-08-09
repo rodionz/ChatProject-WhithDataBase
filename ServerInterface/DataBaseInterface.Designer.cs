@@ -42,7 +42,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.serchUserbyId = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -51,6 +50,9 @@
             this.messageSearchResultsLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.userListBox = new System.Windows.Forms.ListBox();
+            this.CleanUsersResultsButton = new System.Windows.Forms.Button();
+            this.ClearMessageResultsButton = new System.Windows.Forms.Button();
+            this.IDTextBox = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -177,8 +179,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.IDTextBox);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.textBox2);
             this.panel2.Controls.Add(this.serchUserbyId);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label3);
@@ -187,29 +189,22 @@
             this.panel2.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(64, 186);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(422, 135);
+            this.panel2.Size = new System.Drawing.Size(422, 157);
             this.panel2.TabIndex = 10;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(29, 99);
+            this.label7.Location = new System.Drawing.Point(29, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 20);
             this.label7.TabIndex = 12;
             this.label7.Text = "By Id";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(121, 93);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 22);
-            this.textBox2.TabIndex = 10;
-            // 
             // serchUserbyId
             // 
-            this.serchUserbyId.Location = new System.Drawing.Point(331, 90);
+            this.serchUserbyId.Location = new System.Drawing.Point(331, 100);
             this.serchUserbyId.Name = "serchUserbyId";
             this.serchUserbyId.Size = new System.Drawing.Size(75, 23);
             this.serchUserbyId.TabIndex = 11;
@@ -250,16 +245,16 @@
             // messageListBox
             // 
             this.messageListBox.FormattingEnabled = true;
-            this.messageListBox.Location = new System.Drawing.Point(570, 49);
+            this.messageListBox.Location = new System.Drawing.Point(570, 12);
             this.messageListBox.Name = "messageListBox";
-            this.messageListBox.Size = new System.Drawing.Size(196, 108);
+            this.messageListBox.Size = new System.Drawing.Size(196, 95);
             this.messageListBox.TabIndex = 13;
             // 
             // messageSearchResultsLabel
             // 
             this.messageSearchResultsLabel.AutoSize = true;
             this.messageSearchResultsLabel.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageSearchResultsLabel.Location = new System.Drawing.Point(567, 12);
+            this.messageSearchResultsLabel.Location = new System.Drawing.Point(506, 12);
             this.messageSearchResultsLabel.Name = "messageSearchResultsLabel";
             this.messageSearchResultsLabel.Size = new System.Drawing.Size(58, 18);
             this.messageSearchResultsLabel.TabIndex = 14;
@@ -269,7 +264,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(567, 173);
+            this.label8.Location = new System.Drawing.Point(492, 186);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 18);
             this.label8.TabIndex = 16;
@@ -278,10 +273,41 @@
             // userListBox
             // 
             this.userListBox.FormattingEnabled = true;
-            this.userListBox.Location = new System.Drawing.Point(570, 213);
+            this.userListBox.Location = new System.Drawing.Point(570, 198);
             this.userListBox.Name = "userListBox";
-            this.userListBox.Size = new System.Drawing.Size(196, 108);
+            this.userListBox.Size = new System.Drawing.Size(196, 95);
             this.userListBox.TabIndex = 15;
+            // 
+            // CleanUsersResultsButton
+            // 
+            this.CleanUsersResultsButton.BackColor = System.Drawing.Color.Red;
+            this.CleanUsersResultsButton.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CleanUsersResultsButton.Location = new System.Drawing.Point(620, 311);
+            this.CleanUsersResultsButton.Name = "CleanUsersResultsButton";
+            this.CleanUsersResultsButton.Size = new System.Drawing.Size(96, 32);
+            this.CleanUsersResultsButton.TabIndex = 18;
+            this.CleanUsersResultsButton.Text = "Clear";
+            this.CleanUsersResultsButton.UseVisualStyleBackColor = false;
+            // 
+            // ClearMessageResultsButton
+            // 
+            this.ClearMessageResultsButton.BackColor = System.Drawing.Color.Red;
+            this.ClearMessageResultsButton.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearMessageResultsButton.Location = new System.Drawing.Point(620, 125);
+            this.ClearMessageResultsButton.Name = "ClearMessageResultsButton";
+            this.ClearMessageResultsButton.Size = new System.Drawing.Size(88, 33);
+            this.ClearMessageResultsButton.TabIndex = 19;
+            this.ClearMessageResultsButton.Text = "Clear";
+            this.ClearMessageResultsButton.UseVisualStyleBackColor = false;
+            // 
+            // IDTextBox
+            // 
+            this.IDTextBox.Location = new System.Drawing.Point(121, 101);
+            this.IDTextBox.Mask = "00000";
+            this.IDTextBox.Name = "IDTextBox";
+            this.IDTextBox.Size = new System.Drawing.Size(120, 22);
+            this.IDTextBox.TabIndex = 13;
+            this.IDTextBox.ValidatingType = typeof(int);
             // 
             // DataBaseInterface
             // 
@@ -289,6 +315,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(860, 455);
+            this.Controls.Add(this.ClearMessageResultsButton);
+            this.Controls.Add(this.CleanUsersResultsButton);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.userListBox);
             this.Controls.Add(this.messageSearchResultsLabel);
@@ -325,7 +353,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button serchUserbyId;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -334,5 +361,8 @@
         private System.Windows.Forms.Label messageSearchResultsLabel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox userListBox;
+        private System.Windows.Forms.Button CleanUsersResultsButton;
+        private System.Windows.Forms.Button ClearMessageResultsButton;
+        private System.Windows.Forms.MaskedTextBox IDTextBox;
     }
 }

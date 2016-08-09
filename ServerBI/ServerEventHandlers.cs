@@ -35,7 +35,7 @@ namespace ServerBI
             BinaryFormatter bf = new BinaryFormatter();
             ServerProps.StreamsofClients.Add(nStr);
             ServerProps.listofUsersontheserver.Add(mData.SendingUserData);            
-            mData.Time = DateTime.Now;
+            mData.SendingTime = DateTime.Now;
             mData.Textmessage = mData.SendingUserData.Username.ToString() + " Connected ";
             newuserconnected(mData);
             mData.action = NetworkAction.ConectionREsponse;
