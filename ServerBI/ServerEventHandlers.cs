@@ -176,10 +176,10 @@ namespace ServerBI
 
 
 
-        internal static void PrivatemessageHandler(Message mData, NetworkStream nStream)
+        internal static List<int> PrivatemessageHandler(Message mData, NetworkStream nStream)
         {
-          
 
+            List<int> allrecipients = new List<int>();
 
             for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
             {
@@ -191,6 +191,7 @@ namespace ServerBI
                         NetworkStream netStream = ServerProps.StreamsofClients[i];
                         BinaryFormatter bf = new BinaryFormatter();
                         bf.Serialize(netStream, mData);
+                        allrecipients.Add(i);
                     }
 
                 }
@@ -201,6 +202,7 @@ namespace ServerBI
 
                 }
             }
+            return allrecipients;
         }
 
     }

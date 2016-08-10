@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CommonTypes;
 using System.Net.NetworkInformation;
 using System.Threading;
+using System.Collections.Generic;
 
 namespace ServerBI
 {
@@ -39,7 +40,7 @@ namespace ServerBI
                 publicmessage += ServerEventHandlers.PublicMessageHandler;
                 ListofUsersRequest += ServerEventHandlers.UsersList_andDataBaseRequestHandler;
                 Userdicsconnecter += ServerEventHandlers.DisconnectUser;
-                PrivateMessage += ServerEventHandlers.PrivatemessageHandler;
+               
                 ServerEventHandlers.UserDisconnectedUnexpected += ServerEventHandlers.UnexpectedDisconnectionHandler;
                 mainTask = Task.Run(() => WaitingforNewConnections(server, NetworkAction.Connection));
                 await mainTask;
@@ -168,12 +169,30 @@ namespace ServerBI
                     
                     case NetworkAction.Sendmessage:
                         publicmessage(mData, netStr);
-                        ServerDataManagment.PublicMessagetoDatabase(mData);
+                        mData.RecipientsID = null;
+                        ServerDataManagment.MessageSavingtoDatabase(mData);
                         mData.action = NetworkAction.None;
                         break;
 
                     case NetworkAction.SendPrivateMessage:
-                        PrivateMessage(mData, netStr);
+                     List<int> allrecipientslist  =  ServerEventHandlers.PrivatemessageHandler(mData, netStr);
+
+                        /* In the case, when you have more then one recipient you need to store
+                         all id's in collection, and it is very difficult ( at least i didn't found any simple solution)
+                         to store any kind of collection (List, Array, ICollection) as a column to the database. So i've decided to
+                         convert it to the string.
+                           */
+
+
+                        mData.RecipientsID = ""; 
+                       foreach (int n in allrecipientslist)
+                        {
+                            mData.RecipientsID = mData.RecipientsID + " " + n.ToString() + ",";
+                        }
+
+
+                        ServerDataManagment.MessageSavingtoDatabase(mData);
+                       
                         mData.action = NetworkAction.None;
 
                         break;
@@ -285,7 +304,7 @@ namespace ServerBI
                 publicmessage -= ServerEventHandlers.PublicMessageHandler;
                 ListofUsersRequest -= ServerEventHandlers.UsersList_andDataBaseRequestHandler;
                 Userdicsconnecter -= ServerEventHandlers.DisconnectUser;
-                PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
+                
                 ServerEventHandlers.UserDisconnectedUnexpected -= ServerEventHandlers.UnexpectedDisconnectionHandler;
                 }
 

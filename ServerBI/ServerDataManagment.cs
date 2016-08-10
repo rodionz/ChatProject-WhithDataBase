@@ -149,19 +149,14 @@ namespace ServerBI
 
         }
 
-        internal static void PublicMessagetoDatabase(Message mData)
+        internal static void MessageSavingtoDatabase(Message mData)
         {
             Client x;
 
             using (var context = new ChatContext())
             {
-
                 x = context.Clients.Where(n => n.Username == mData.SendingUserData.Username).FirstOrDefault();
-
             }
-
-
-
 
             using (var context = new ChatContext())
             {

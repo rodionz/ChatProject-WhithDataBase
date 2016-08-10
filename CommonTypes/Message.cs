@@ -30,7 +30,13 @@ namespace CommonTypes
         public DateTime SendingTime
         { get; set; }
 
-        public int RecipientID
+
+        /* In the case, when you have more then one recipient you need to store
+        all id's in collection, and it is very difficult ( at least i didn't found any simple solution)
+        to store any kind of collection (List, Array, ICollection) as a column to the database. So i've decided to
+        convert it to the string
+    */
+        public string RecipientsID
         { get; set; }
 
 
