@@ -32,9 +32,11 @@ namespace ServerBI
         {
             using (var context = new ChatContext())
             {
-                context.Clients.Attach(toDEL);
-                context.Clients.Remove(toDEL);
+
+                context.Entry(toDEL).State = EntityState.Deleted;
+
                 context.SaveChanges();
+
 
 
             }
@@ -115,17 +117,18 @@ namespace ServerBI
 
             if (toupdate != null)
             {
-              
+
                 toupdate.IsConnected = false;
-               
-            }
 
-            using (var context = new ChatContext())
-            {
 
-                context.Entry(toupdate).State = EntityState.Modified;
-                context.SaveChanges();
 
+                using (var context = new ChatContext())
+                {
+
+                    context.Entry(toupdate).State = EntityState.Modified;
+                    context.SaveChanges();
+
+                }
             }
 
         }

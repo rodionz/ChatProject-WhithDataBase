@@ -86,19 +86,33 @@ namespace ServerInterface
         }
 
         private void deleteUser_Click(object sender, EventArgs e)
+
+           
         {
-            Client usertoDelete = allClients.FirstOrDefault(n => n.Username == comboBox1.SelectedItem.ToString());
 
-
-
-       DialogResult dr =  MessageBox.Show("Are you sure that you want to delete " + usertoDelete.Username + " from the Data Base ?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
-            if (dr == DialogResult.OK)
+            if (comboBox1.SelectedText != null)
             {
-                ServerDataManagment.RemoveUserfromDataBase(usertoDelete);
-            }
 
-          
+
+
+                Client usertoDelete = allClients.FirstOrDefault(n => n.Username == comboBox1.SelectedItem.ToString());
+
+
+
+                DialogResult dr = MessageBox.Show("Are you sure that you want to delete " + usertoDelete.Username + " from the Data Base ?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                if (dr == DialogResult.OK)
+                {
+                    ServerDataManagment.RemoveUserfromDataBase(usertoDelete);
+                }
+
+                comboBox1.Items.Remove(usertoDelete.Username);
+
+               
+                comboBox1.SelectedText = "";
+                comboBox1.Text = "";
+                MessageBox.Show(usertoDelete.Username + " Was deleted !", "User Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
