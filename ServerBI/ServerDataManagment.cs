@@ -133,9 +133,19 @@ namespace ServerBI
 
         }
 
-        internal static void DisconnectEveryone()
+        public static void DisconnectEveryone()
         {
+            using (var context = new ChatContext())
+            {
+                var allUsers = context.Clients.ToList();
 
+                for(int i = 0; i < allUsers.Count; i ++)
+                {
+                    allUsers[i].IsConnected = false;
+                    context.Entry(allUsers[i]).State = EntityState.Modified;
+                    context.SaveChanges();
+                }
+            }
 
         }
 

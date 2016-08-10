@@ -28,14 +28,17 @@ namespace ClientInterface
                 WarnigLabel.Text = "Name is illigal";
             }
 
-            ClientInterfaceProps.thisClient.Username = UserNameBox.Text;
-            UserLogic.RegistrationtoDataBase(ClientInterfaceProps.thisClient);
+            else
+            {
+                ClientInterfaceProps.thisClient.Username = UserNameBox.Text;
+                UserLogic.RegistrationtoDataBase(ClientInterfaceProps.thisClient);
 
-            
 
-            MessageBox.Show("Registration Successful", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            Close();
+                MessageBox.Show("Registration Successful", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Close();
+            }
         }
     }
 }

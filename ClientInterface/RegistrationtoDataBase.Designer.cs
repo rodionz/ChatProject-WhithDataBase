@@ -92,9 +92,8 @@
             this.WarnigLabel.AutoSize = true;
             this.WarnigLabel.Location = new System.Drawing.Point(270, 213);
             this.WarnigLabel.Name = "WarnigLabel";
-            this.WarnigLabel.Size = new System.Drawing.Size(35, 13);
+            this.WarnigLabel.Size = new System.Drawing.Size(0, 13);
             this.WarnigLabel.TabIndex = 29;
-            this.WarnigLabel.Text = "label3";
             // 
             // RegistrationtoDataBase
             // 
