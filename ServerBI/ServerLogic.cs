@@ -187,7 +187,7 @@ namespace ServerBI
                         mData.RecipientsID = ""; 
                        foreach (int n in allrecipientslist)
                         {
-                            mData.RecipientsID = mData.RecipientsID + " " + n.ToString() + ",";
+                            mData.RecipientsID = mData.RecipientsID + " " + n.ToString();
                         }
 
 
@@ -230,10 +230,7 @@ namespace ServerBI
 
 
                     case NetworkAction.DataBaseRegistration:
-                        // to do
-                        //
-                        //
-                        //
+                       
                         mData.SendingUserData.IsConnected = false;
                         mData.SendingUserData.LastConnectionDate = DateTime.Now;
                         ServerDataManagment.AddUsertoDataBase(mData.SendingUserData);

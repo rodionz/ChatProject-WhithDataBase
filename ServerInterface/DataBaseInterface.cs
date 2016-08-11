@@ -66,7 +66,10 @@ namespace ServerInterface
 
             if(results.Length != 0)
             {
-                messageListBox.Items.AddRange(results);
+                foreach(CommonTypes.Message m in results)
+                {
+                    messageListBox.Items.Add(m.Textmessage);
+                }
             }
 
             else

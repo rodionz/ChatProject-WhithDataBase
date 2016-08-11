@@ -179,19 +179,17 @@
             this.NickNameConfirmationLabel.ForeColor = System.Drawing.SystemColors.Desktop;
             this.NickNameConfirmationLabel.Location = new System.Drawing.Point(241, 274);
             this.NickNameConfirmationLabel.Name = "NickNameConfirmationLabel";
-            this.NickNameConfirmationLabel.Size = new System.Drawing.Size(37, 19);
+            this.NickNameConfirmationLabel.Size = new System.Drawing.Size(0, 19);
             this.NickNameConfirmationLabel.TabIndex = 28;
-            this.NickNameConfirmationLabel.Text = "test";
             // 
             // WarningLabel
             // 
             this.WarningLabel.AutoSize = true;
             this.WarningLabel.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WarningLabel.Location = new System.Drawing.Point(241, 166);
+            this.WarningLabel.Location = new System.Drawing.Point(241, 184);
             this.WarningLabel.Name = "WarningLabel";
-            this.WarningLabel.Size = new System.Drawing.Size(37, 19);
+            this.WarningLabel.Size = new System.Drawing.Size(0, 19);
             this.WarningLabel.TabIndex = 30;
-            this.WarningLabel.Text = "test";
             // 
             // label4
             // 
