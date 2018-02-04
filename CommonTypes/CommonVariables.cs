@@ -19,26 +19,11 @@ namespace CommonTypes
 
     [Serializable]
      public abstract  class CommonVariables
-
-
     {
-
         public int ID
         { get; set; }
 
-
-        
-
-
-        public Color color;
-      
-
-       
-
-
-      
-
-
-      
+       public Color color;
+           
     }
 }

@@ -10,27 +10,17 @@ namespace ServerInterface
     {
         public static bool PortValid;
 
-
         public static bool IPisVAlid;
-      
-
-
-
+     
         public static bool ServerisValid
         {
-
             get
             {
                 if (PortValid && IPisVAlid)
                     return true;
-
                 else
                     return false;
-
-            }
-
-            
-
+            }         
         }
 
 
@@ -52,11 +42,8 @@ namespace ServerInterface
 
        public static void ResetBools()
         {
-
             PortValid = false;
             IPisVAlid = false;
-            
-
         }
 
         public static bool WasPrinted;

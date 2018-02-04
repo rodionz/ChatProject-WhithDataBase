@@ -10,12 +10,7 @@ namespace ClientInterface
 
     {
 
-  
-        
-
-
-
-
+     
        internal  static Client thisClient
         { get; set; }
 
@@ -67,21 +62,14 @@ namespace ClientInterface
                 PortValid = false;
                 return false;
             }
-
         }
 
         public static void ResetBooleans()
 
         {
-
-
             NicnameConfirmed = false;
             IPandPortconfirmed = false;
             PortValid = false;
-
-        }
-
-
-     
+        }    
     }
 }

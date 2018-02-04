@@ -14,8 +14,5 @@ namespace Chat.DAL
 
         public DbSet<Message> Messages { get; set; }
 
-      
-
-
     }
 }

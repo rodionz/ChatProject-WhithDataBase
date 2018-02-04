@@ -3,25 +3,21 @@ using System.Collections.Generic;
 
 namespace CommonTypes
 {
-    [Serializable]
+   [Serializable]
   public  class Message : CommonVariables
 
     {
         
-
         public Client SendingUserData
         { get; set; }
 
         public NetworkAction action;
   
-
         public string Textmessage
         { get; set; }
 
         public List<string> listofnamesforPrivateMessage;
       
-
-
         public List<Client> ListofUserinDatabase;
 
         public List<Client> ListofTakenUserNames;
@@ -38,10 +34,6 @@ namespace CommonTypes
     */
         public string RecipientsID
         { get; set; }
-
-
-
-
 
         public Message() { }
 

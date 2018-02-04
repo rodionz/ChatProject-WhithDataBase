@@ -8,7 +8,6 @@ namespace CommonTypes
 
         public int UseridinLists;
        
-
         public string Username
         { get; set; }
 
@@ -24,11 +23,7 @@ namespace CommonTypes
         public int Portnumber
         { get; set; }
 
-
         public bool Registered;
-
-
-
 
         public Client()
         {
@@ -53,10 +48,6 @@ namespace CommonTypes
             this.Portnumber = Port;
             this.Username = Username;
 
-        }
-
-    
-
-        
+        }       
     }
 }

@@ -15,33 +15,19 @@ namespace ServerBI
         internal static void AddUsertoDataBase(Client c )
         {
             using (var context = new ChatContext())
-            {
-               
-
+            {             
                 context.Clients.Add(c);
-
                 context.SaveChanges();
-
-
             }
-
-
         }
 
         public static void RemoveUserfromDataBase(Client toDEL)
         {
             using (var context = new ChatContext())
             {
-
                 context.Entry(toDEL).State = EntityState.Deleted;
-
                 context.SaveChanges();
-
-
-
             }
-
-
         }
 
     
@@ -70,13 +56,8 @@ namespace ServerBI
                     return true;
 
                 else
-                    return false;
-
-                        
-
-
+                    return false;                      
             }
-
 
         }
 
@@ -98,12 +79,9 @@ namespace ServerBI
 
             using (var context = new ChatContext())
             {
-
                 context.Entry(toupdate).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
-
             }
-
         }
 
 
@@ -114,20 +92,13 @@ namespace ServerBI
             {
                 toupdate = context.Clients.Where(s => s.Username == c.Username).FirstOrDefault<Client>();
             }
-
             if (toupdate != null)
             {
-
                 toupdate.IsConnected = false;
-
-
-
                 using (var context = new ChatContext())
                 {
-
                     context.Entry(toupdate).State = EntityState.Modified;
                     context.SaveChanges();
-
                 }
             }
 
@@ -146,13 +117,11 @@ namespace ServerBI
                     context.SaveChanges();
                 }
             }
-
         }
 
         internal static void MessageSavingtoDatabase(Message mData)
         {
             Client x;
-
             using (var context = new ChatContext())
             {
                 x = context.Clients.Where(n => n.Username == mData.SendingUserData.Username).FirstOrDefault();
@@ -162,9 +131,7 @@ namespace ServerBI
             {
                 mData.SendingUserData = x;
                 context.Messages.Attach(mData);
-
                 context.Entry(mData).State = EntityState.Added;
-
                 context.SaveChanges();
             }
         }
@@ -172,18 +139,13 @@ namespace ServerBI
 
         public static Message [] MessageSearchbyText (string text)
         {
-
             using (var context = new ChatContext())
             {
                 var results = from m in context.Messages
                               where m.Textmessage.Contains(text)
                               select m;
-
                 return results.ToArray();
-
             }
-
-
         }
 
         public static Client [] UserSearchbyName(string text)
@@ -216,11 +178,7 @@ namespace ServerBI
             {
 
                 //  Entity framework does not exept any ToString() functions.  This is the only solution i found.
-
                 var allitems = context.Messages.ToList();
-
-
-
                 var results = from m in allitems
                               where m.SendingTime.ToShortDateString()  == dt.ToShortDateString()
                               select m ;

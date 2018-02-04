@@ -9,8 +9,6 @@ namespace ServerBI
 {
     public  class ServerProps
     {
-
-
         /* This is a only way i could find the solutioin
         for the "Network Cabel Disconnection" issue:
         I have Two functions that cheks is there any connection (both local and internet)
@@ -40,16 +38,13 @@ namespace ServerBI
                     return true;
 
                 else
-                    return false;
-            
+                    return false;            
             }
         }
 
         internal static bool NetworkisOK
-
         {
             get
-
             {
                 if (CheckNet() == true && Network_Works == true)
                 {

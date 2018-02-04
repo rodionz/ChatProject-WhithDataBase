@@ -19,20 +19,11 @@ namespace ClientBL
         public static event Action<string> NoConnectionWhithServerEvent;
         public static event Action ServerDisconnected;
         public static event Action<Message> MessageRecieved;
-
-
-
         public static bool GlobalValidIpandPort;
         public static NetworkAction LolacAction;
         public static Message LockalmesData;
         private static TcpClient client;
-
         static Task listening;
-
-
-
-
-
 
         /*         
          The separate function fot IP and Port validation was intended,
@@ -46,7 +37,6 @@ namespace ClientBL
 
             TcpClient preclient = new TcpClient();
            
-
             try
             {
 
@@ -96,7 +86,6 @@ namespace ClientBL
                 }
 
             }
-
             catch
             {
 
@@ -123,19 +112,14 @@ namespace ClientBL
                     reg.action = NetworkAction.Checkifregisterd;               
                     reg.SendingUserData = newclient;
 
-
                     // This Feature Provides information about each clent's IP and Port to the Server
-
-                    string local = register.Client.LocalEndPoint.ToString();
-                   
+                    string local = register.Client.LocalEndPoint.ToString();                  
                     char[] separ = { ':' };
                     string[] ipandport = local.Split(separ);
                     ClientProps.RealIP = ipandport[0];
                     ClientProps.RealPort = int.Parse(ipandport[1]);
                  
                     //////////////////////////////////////////////////////////////////////////
-
-
 
                     bf.Serialize(nStream, reg);
                     Message ANSWER = (Message)bf.Deserialize(nStream);
@@ -144,16 +128,12 @@ namespace ClientBL
                     else
                         return false;
                 }
-
             }
-
-           
-
+        
             finally
             {
                 register.Close();
             }
-
         }
 
 
@@ -170,13 +150,9 @@ namespace ClientBL
                 BinaryFormatter Bformat = new BinaryFormatter();
                 NetworkStream stream = client.GetStream();
                 ClientProps.clientStream = stream;
-
-
                 mData.SendingUserData.IPadress = ClientProps.RealIP;
                 mData.SendingUserData.Portnumber = ClientProps.RealPort;
                 //////////////////////////////////////////////////////////////////////////
-
-
                 Bformat.Serialize(stream, mData);
                 ClientProps.UserisOnline = true;
                 stream.Flush();
@@ -212,8 +188,6 @@ namespace ClientBL
                 Thread.Sleep(100);
 
 
-
-
                 /*
         This property servs as a detector of network interferences (like Network Cable disconnection)
         Please see more information inside of ClientProps class
@@ -244,9 +218,6 @@ namespace ClientBL
                         MessageRecieved(incoming);
                     }
 
-
-
-
                     else if (incoming.action == NetworkAction.SeverDisconnection)
                     {
                         MessageRecieved(incoming);
@@ -259,22 +230,18 @@ namespace ClientBL
 
                     else
                         MessageRecieved(incoming);
-
                 }
 
                 incoming.action = NetworkAction.None;
             }
-
             return;
         }
 
 
         public static void SendMessage(Message outcoming)
         {
-
             try
             {
-
                 BinaryFormatter sendingformatter = new BinaryFormatter();
                 NetworkStream localstrem = ClientProps.clientStream;
                 sendingformatter.Serialize(localstrem, outcoming);
@@ -286,14 +253,11 @@ namespace ClientBL
                 */
                 if (!ClientProps.Network_Works)
                 {
-
                     ClientProps.UserisOnline = false;
                     NoConnectionWhithServerEvent("Connection Was Lost!");
                     client.Close();
                     return;
-                }
-
-               
+                }              
             }
 
             catch (Exception io)
@@ -303,29 +267,15 @@ namespace ClientBL
                 NoConnectionWhithServerEvent("Connection whith the server Was Lost!");
                 client.Close();
                 return;
-            }
-
-
-          
-            
+            }            
         }
 
-
-
-
-
-
         public static void Disconnection(Client uData)
-
-        {
-            
+        {            
             GlobalValidIpandPort = false;
             Message mData = new Message(uData, NetworkAction.UserDisconnection);
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;
-
-          
-
 
             try
             {
@@ -338,23 +288,16 @@ namespace ClientBL
                 
             }
 
-
-
-
             try
             {
                 ClientProps.clientStream.Close();
                 ClientProps.clientStream.Dispose();
             }
 
-
             finally
             {
                 client.Close();
             }
-
         }
-
-
     }
 }

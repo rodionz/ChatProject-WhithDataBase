@@ -65,12 +65,8 @@ namespace ServerBI
                 // Unexpected Client Disconnection
                 catch(IOException)
                 {
-
                     UserDisconnectedUnexpected(mData, nstr, i);
-
-
-                }
-               
+                }             
             }
             messgesent(mData);
 
@@ -84,7 +80,7 @@ namespace ServerBI
         internal static void UsersList_andDataBaseRequestHandler( Message mData, NetworkStream nStr)
         {
             
-            BinaryFormatter bf = new BinaryFormatter();
+           BinaryFormatter bf = new BinaryFormatter();
             mData.ListofTakenUserNames = new List<Client>();
             foreach(Client ud in ServerProps.listofUsersontheserver)
             {

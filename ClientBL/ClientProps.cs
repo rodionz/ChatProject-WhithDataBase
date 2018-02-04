@@ -30,8 +30,6 @@ namespace ClientBL
             return InternetGetConnectedState(out desc, 0);
         }
 
-
-
         internal static bool Network_Works
         {
             get
@@ -45,18 +43,15 @@ namespace ClientBL
             }
         }
 
-
         internal static bool NetworkisOK
 
         {
             get
-
             {
                 if (CheckNet() == true && Network_Works == true)
                 {
                     return true;
                 }
-
                 else
                 {
                     return false;
@@ -68,11 +63,6 @@ namespace ClientBL
 /// //////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-
-
         public static bool shutdown = false;
 
         public static List<Client> listofTakenNames;
@@ -81,12 +71,10 @@ namespace ClientBL
 
         public static bool UserisOnline
         { get; set; }
-
-              
+           
          internal static  TcpClient LocalClient
         { get; set; }
       
-
         internal static NetworkStream clientStream
         { get; set; }
 
