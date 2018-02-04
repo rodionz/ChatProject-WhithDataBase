@@ -14,9 +14,7 @@ namespace ClientInterface
        internal  static Client thisClient
         { get; set; }
 
-
         internal static string  uNmake;
-
 
         internal static bool PrivateMessage = false;
        
@@ -31,22 +29,14 @@ namespace ClientInterface
             }
         }
 
-
-        
+     
         internal static bool NicnameConfirmed
         { get;set;}
-
-
-       
+     
         internal static bool IPandPortconfirmed
         { get; set; }
 
-
-
         internal static bool MessageIsPrivate;
-
-
-
 
        private static bool PortValid;
 

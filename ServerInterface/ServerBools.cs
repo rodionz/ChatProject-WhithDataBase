@@ -23,8 +23,6 @@ namespace ServerInterface
             }         
         }
 
-
-
     public static bool PortisValid(this int num)
         {
             if (num > 10000 && num < 65535)
@@ -39,7 +37,6 @@ namespace ServerInterface
             }
 
         }
-
        public static void ResetBools()
         {
             PortValid = false;

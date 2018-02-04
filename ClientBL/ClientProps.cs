@@ -39,12 +39,10 @@ namespace ClientBL
 
                 else
                     return false;
-
             }
         }
 
         internal static bool NetworkisOK
-
         {
             get
             {

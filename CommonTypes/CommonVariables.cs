@@ -15,15 +15,12 @@ namespace CommonTypes
         UserDisconnection = 7, SeverDisconnection = 8, DataBaseRegistration = 9, Checkifregisterd = 10,
         None = 99 }
 
-
-
     [Serializable]
      public abstract  class CommonVariables
     {
         public int ID
         { get; set; }
 
-       public Color color;
-           
+       public Color color;          
     }
 }
