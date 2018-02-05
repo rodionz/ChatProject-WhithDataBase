@@ -21,8 +21,6 @@ namespace ServerBI
         public static event Action<Message, NetworkStream> ListofUsersRequest;
         public static event Action<Message, NetworkStream, Client> Userdicsconnecter;      
         public static event Action<Message, NetworkStream> PrivateMessage;
-
-
         private static TcpListener server;
         static Task mainTask;
         static Task StarttoListen;
@@ -31,30 +29,25 @@ namespace ServerBI
 
         public async static void ServerOnline(Server sData)
 
-        {
-           
+        {           
                 server = new TcpListener(IPAddress.Parse(sData.IPadress), sData.Portnumber);
                 ServerProps.ServerisOnline = true;
                 ipandportvalidation += ServerEventHandlers.IPandPortValidationHandler;
                 connection += ServerEventHandlers.ConnectionHandler;
                 publicmessage += ServerEventHandlers.PublicMessageHandler;
                 ListofUsersRequest += ServerEventHandlers.UsersList_andDataBaseRequestHandler;
-                Userdicsconnecter += ServerEventHandlers.DisconnectUser;
-               
+                Userdicsconnecter += ServerEventHandlers.DisconnectUser;              
                 ServerEventHandlers.UserDisconnectedUnexpected += ServerEventHandlers.UnexpectedDisconnectionHandler;
                 mainTask = Task.Run(() => WaitingforNewConnections(server, NetworkAction.Connection));
                 await mainTask;
-                mainTask.Dispose();
-           
-
+                mainTask.Dispose();         
         }
 
         public static void WaitingforNewConnections(TcpListener serv, NetworkAction NecAct)
 
         {
             try
-            {
-                               
+            {                               
                 serv.Start();
 
                 while (ServerProps.ServerisOnline)
@@ -74,20 +67,16 @@ namespace ServerBI
                         Finalising();
                         return;
                     }
-
                     TcpClient client = serv.AcceptTcpClient();                
-                     StarttoListen = Task.Run(() => StartListeningtoMessages(client));     
-                                   
+                     StarttoListen = Task.Run(() => StartListeningtoMessages(client));                                      
                 }
                 return;              
             }
 
-
             catch (SocketException)
             {
-              
-             
-                if (!ServerProps.ManualSidconnection && ServerProps.ServerisOnline)
+                         
+               if (!ServerProps.ManualSidconnection && ServerProps.ServerisOnline)
                 {
                     ConnecionWhithWrongIPorPort();
                     
@@ -112,9 +101,7 @@ namespace ServerBI
             NetworkStream netStr = localient.GetStream();   
                  
             while (ServerProps.ServerisOnline)
-
             {
-
                 try
                 {
                     while (!netStr.DataAvailable)
@@ -134,9 +121,6 @@ namespace ServerBI
                     that i found was to include small time delay in every infinity loop
                         */
                         Thread.Sleep(100);
-
-
-
                     }
                 }
 
@@ -183,18 +167,14 @@ namespace ServerBI
                          convert it to the string.
                            */
 
-
                         mData.RecipientsID = ""; 
                        foreach (int n in allrecipientslist)
                         {
                             mData.RecipientsID = mData.RecipientsID + " " + n.ToString();
                         }
 
-
-                        ServerDataManagment.MessageSavingtoDatabase(mData);
-                       
+                        ServerDataManagment.MessageSavingtoDatabase(mData);                      
                         mData.action = NetworkAction.None;
-
                         break;
 
                     case NetworkAction.RequestforListofUsers:
@@ -210,20 +190,10 @@ namespace ServerBI
                          * because of inconsistency of list sizes, 
                         so i decided to replase them whith null's
                             */
-                        try
-                        {
-                            ServerProps.StreamsofClients[mData.SendingUserData.UseridinLists].Close();
-                            ServerProps.StreamsofClients[mData.SendingUserData.UseridinLists].Dispose();
-                        }
-
-                        catch
-                        {
-
-                        }
-
+                      ServerProps.StreamsofClients[mData.SendingUserData.UseridinLists].Close();
+                      ServerProps.StreamsofClients[mData.SendingUserData.UseridinLists].Dispose();                                      
                         ServerProps.listofUsersontheserver[mData.SendingUserData.UseridinLists] = null;
-                        ServerProps.StreamsofClients[mData.SendingUserData.UseridinLists] = null;  
-                                                                                        
+                        ServerProps.StreamsofClients[mData.SendingUserData.UseridinLists] = null;                                                                                     
                         Userdicsconnecter(mData, netStr, uData);
                         mData.action = NetworkAction.None;
                         break;
@@ -250,20 +220,14 @@ namespace ServerBI
         }
 
 
-
-
-
         public static void StopListening()
-
         {
             ServerProps.ServerisOnline = false;
             Message byebye = new Message();
             byebye.Textmessage = "\n Goodbye to Everyone \n You were disconnected ";
             byebye.action = NetworkAction.SeverDisconnection;
-            NetworkStream ns = null;
-
-         
-               ServerEventHandlers.PublicMessageHandler(byebye, ns);
+            NetworkStream ns = null;        
+            ServerEventHandlers.PublicMessageHandler(byebye, ns);
             Finalising();
 
         }
@@ -282,13 +246,6 @@ namespace ServerBI
                     }
                 }
 
-            }
-
-            catch
-            { }
-
-
-            try {
                 foreach (Client c in ServerProps.listofUsersontheserver)
                     ServerDataManagment.DisConnectionUpdate(c);
 
@@ -301,10 +258,8 @@ namespace ServerBI
                 publicmessage -= ServerEventHandlers.PublicMessageHandler;
                 ListofUsersRequest -= ServerEventHandlers.UsersList_andDataBaseRequestHandler;
                 Userdicsconnecter -= ServerEventHandlers.DisconnectUser;
-                
                 ServerEventHandlers.UserDisconnectedUnexpected -= ServerEventHandlers.UnexpectedDisconnectionHandler;
-                }
-
+            }         
             catch
             {
                 return;

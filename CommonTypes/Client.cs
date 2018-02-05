@@ -42,12 +42,10 @@ namespace CommonTypes
         }
 
         public Client( string IP, int Port, string Username)
-        {
-            
+        {          
             this.IPadress = IP;
             this.Portnumber = Port;
             this.Username = Username;
-
         }       
     }
 }

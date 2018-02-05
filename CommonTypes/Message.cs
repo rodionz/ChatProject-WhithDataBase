@@ -22,7 +22,6 @@ namespace CommonTypes
 
         public List<Client> ListofTakenUserNames;
 
-
         public DateTime SendingTime
         { get; set; }
 

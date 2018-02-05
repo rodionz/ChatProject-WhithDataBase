@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 namespace ServerBI
 {
    public  class ServerDataManagment
-    {
-       
+    {     
         internal static void AddUsertoDataBase(Client c )
         {
             using (var context = new ChatContext())
@@ -46,7 +45,6 @@ namespace ServerBI
 
         internal static bool ChekifUserRegistred(Client c)
         {
-
             using (var context = new ChatContext())
             {
                 var names = from n in context.Clients
@@ -176,7 +174,6 @@ namespace ServerBI
         {
             using (var context = new ChatContext())
             {
-
                 //  Entity framework does not exept any ToString() functions.  This is the only solution i found.
                 var allitems = context.Messages.ToList();
                 var results = from m in allitems
@@ -185,7 +182,6 @@ namespace ServerBI
                 
                 return results.ToArray();
             }
-
         }
     }
 }

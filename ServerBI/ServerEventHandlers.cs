@@ -73,13 +73,8 @@ namespace ServerBI
         }
 
 
-
-
-
-
-        internal static void UsersList_andDataBaseRequestHandler( Message mData, NetworkStream nStr)
-        {
-            
+       internal static void UsersList_andDataBaseRequestHandler( Message mData, NetworkStream nStr)
+        {           
            BinaryFormatter bf = new BinaryFormatter();
             mData.ListofTakenUserNames = new List<Client>();
             foreach(Client ud in ServerProps.listofUsersontheserver)
@@ -87,36 +82,17 @@ namespace ServerBI
                 if (ud != null)
                     mData.ListofTakenUserNames.Add(ud);
             }
-
-            using (var context = new ChatContext())
-            {
-
-
-
-            }
-
-
-                //mData.listofUsers = ServerProps.listofUsersontheserver;
-                mData.action = NetworkAction.RequestforListofUsers;
+        
+            mData.action = NetworkAction.RequestforListofUsers;
             bf.Serialize(nStr, mData);
         }
-
-
-
-
-
-
 
 
     //Usuall Disconnection
         internal static void DisconnectUser(Message mData, NetworkStream nStr, Client uData)
         {
-
-
             ServerDataManagment.DisConnectionUpdate(uData);
-
-            BinaryFormatter bf = new BinaryFormatter();
-           
+            BinaryFormatter bf = new BinaryFormatter();         
 
             for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
             {
@@ -132,7 +108,6 @@ namespace ServerBI
                 }
                
             }
-
             UserRemovalfromtheInterface(uData);
         }
 
@@ -179,7 +154,6 @@ namespace ServerBI
 
             for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
             {
-
                 try
                 {
                     if (ServerProps.StreamsofClients[i] != null && mData.listofnamesforPrivateMessage.Contains(ServerProps.listofUsersontheserver[i].Username))
@@ -189,17 +163,13 @@ namespace ServerBI
                         bf.Serialize(netStream, mData);
                         allrecipients.Add(i);
                     }
-
                 }
                 catch(IOException)
                 {
-
                     UserDisconnectedUnexpected(mData, nStream, i);
-
                 }
             }
             return allrecipients;
         }
-
     }
 }

@@ -32,14 +32,11 @@ namespace ClientBL
         public static void IPAndPortValidation_andRequestforUserLists(Message premesData)
 
         {
-
             Message returning;
-
             TcpClient preclient = new TcpClient();
            
             try
             {
-
                 /* Please Pay Attention that attempt to connect to unexisting server will cause
                 a delay (7 - 10 seconds) untill it throws an exeption
                 */
@@ -72,7 +69,6 @@ namespace ClientBL
         public static void RegistrationtoDataBase(Client newclient)
         {
             TcpClient register = new TcpClient();
-
             try
             {
                 register.Connect(newclient.IPadress, newclient.Portnumber);
@@ -85,12 +81,7 @@ namespace ClientBL
                     bf.Serialize(nStream, reg);
                 }
 
-            }
-            catch
-            {
-
-            }
-
+            }         
             finally
             {
                 register.Close();
@@ -161,24 +152,19 @@ namespace ClientBL
                 listening.Dispose();
             }
 
-
             catch
             {
                 NoConnectionWhithServerEvent("Server is offline");
                 ServerDisconnected();
+            }          
             }
-            
 
-
-            }
         private static void StariListenToIncomingMessages(Client currentUser)
         {
             BinaryFormatter listerformatter = new BinaryFormatter();
             Message incoming = new Message();
             NetworkStream usernetstream = ClientProps.clientStream;
-
-            
-
+          
             while (ClientProps.UserisOnline)
             {
                 /* I found out that every infinity loop creates heavy load on the processor. 
@@ -186,7 +172,6 @@ namespace ClientBL
                that i found was to include small time delay in every infinity loop
                    */
                 Thread.Sleep(100);
-
 
                 /*
         This property servs as a detector of network interferences (like Network Cable disconnection)
@@ -261,7 +246,6 @@ namespace ClientBL
             }
 
             catch (Exception io)
-
             {
                 ClientProps.UserisOnline = false;
                 NoConnectionWhithServerEvent("Connection whith the server Was Lost!");
@@ -280,19 +264,9 @@ namespace ClientBL
             try
             {
                 disconnect.Serialize(local, mData);
-                
-            }
-
-           catch
-            {
-                
-            }
-
-            try
-            {
                 ClientProps.clientStream.Close();
                 ClientProps.clientStream.Dispose();
-            }
+            }        
 
             finally
             {
